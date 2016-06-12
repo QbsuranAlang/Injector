@@ -1,0 +1,15 @@
+Package: tw.edu.mcu.cce.nrl.InjectorDaemon
+Name: InjectorDaemon
+Version: 1.0-1
+Description: The project let you easily browse your network flow and using some network command tools with UI. https://nrl.cce.mcu.edu.tw/injector
+Section: System
+Depends: firmware (>= 5.0), mobilesubstrate, preferenceloader
+Conflicts: 
+Replaces: Injector
+Priority: optional
+Architecture: iphoneos-arm
+Author: Qbsuran Alang  <jr89197@hotmail.com>
+dev: 
+Homepage: https://nrl.cce.mcu.edu.tw/injector
+Maintainer: Qbsuran Alang <jr89197@hotmail.com>
+Icon: file:///Library/PreferenceBundles/InjectorPreferenceLoader.bundle/InjectorPreferenceLoaderIcon@3x.png

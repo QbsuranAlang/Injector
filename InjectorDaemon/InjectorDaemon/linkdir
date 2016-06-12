@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#linkdir class dir
+mkdir -p $1
+
+cd $1
+ln -fs ../../../Injector-ToolKit/$1/$1/$1/$2 $2

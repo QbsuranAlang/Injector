@@ -1,0 +1,15 @@
+Package: tw.edu.mcu.cce.nrl.Injector
+Name: Injector
+Version: 2.1
+Description: The project let you easily browse your network flow and using some network tools with UI. https://nrl.cce.mcu.edu.tw/injector
+Section: Networking
+Depends: firmware (>= 5.0), mobilesubstrate, preferenceloader
+Conflicts: 
+Replaces: Injector
+Priority: optional
+Architecture: iphoneos-arm
+Author: Qbsuran Alang <jr89197@hotmail.com>
+dev: 
+Homepage: https://nrl.cce.mcu.edu.tw/injector
+Maintainer: Qbsuran Alang <jr89197@hotmail.com>
+Icon: file:///Applications/Injector.app/CydiaIcon.png

@@ -1,0 +1,34 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+target 'Injector' do
+
+pod 'ALSystemUtilities'
+pod 'BEMSimpleLineGraph', '~> 3.3'
+pod 'PNChart'
+pod 'SCLAlertView-Objective-C'
+pod 'UIColor+BFPaperColors'
+pod 'HSDatePickerViewController'
+pod 'KVNProgress'
+pod 'JKBigInteger'
+pod 'FlatUIKit'
+pod 'Canvas', '~> 0.1.2'
+pod 'AMWaveTransition'
+pod 'CNPGridMenu'
+pod 'CZPicker'
+pod 'EBCardCollectionViewLayout', :git => 'https://github.com/betzerra/EBCardCollectionViewLayout'
+pod 'ASProgressPopUpView'
+pod 'RNFrostedSidebar', '~> 0.1.0'
+
+pod 'FBSDKCoreKit', '~> 4.0.1'
+pod 'FBSDKShareKit', '~> 4.0.1'
+pod 'FBSDKLoginKit', '~> 4.0.1'
+
+end
+
+

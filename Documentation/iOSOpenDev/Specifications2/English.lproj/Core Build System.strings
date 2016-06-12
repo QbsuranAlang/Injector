@@ -1,0 +1,40 @@
+﻿//
+//  Build System properties for the iOS Simulator platform
+//  English localization
+//
+//  Copyright (c) 2010-2012 Apple, Inc.  All rights reserved.
+//
+
+"Name" = "Standard Build Settings";
+"Description" = "General";
+
+
+// Deployment Settings
+
+"[Deployment]-category" = "Deployment";
+
+"[IPHONEOS_DEPLOYMENT_TARGET]-name" = "iOS Deployment Target";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description" = "Code will load on this and later versions of iOS.  Framework APIs that are unavailable in earlier versions will be weak-linked; your code should check for null function pointers or specific system versions before calling newer APIs. [IPHONEOS_DEPLOYMENT_TARGET]
+
+iOS 4.3 - Code will not load on systems earlier than 4.3. [4.3]
+iOS 5.0 - Code will not load on systems earlier than 5.0. [5.0]
+iOS 5.1 - Code will not load on systems earlier than 5.1. [5.1]
+iOS 6.0 - Code will not load on systems earlier than 6.0. [6.0]
+
+";
+// fix hardcode with rdar://7444608
+//__SUPPORTED_IPHONEOS_DEPLOYMENT_TARGET_DESCRIPTIONS__
+//";
+
+
+// __SUPPORTED_IPHONEOS_DEPLOYMENT_TARGETS__
+// fix hardcode with rdar://7444608
+// Supported IPHONEOS_DEPLOYMENT_TARGETs 
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[4.3]" = "iOS 4.3";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[4.3]" = "Code will not load on systems earlier than 4.3. [4.3]";
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[5.0]" = "iOS 5.0";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[5.0]" = "Code will not load on systems earlier than 5.0. [5.0]";
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[5.1]" = "iOS 5.1";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[5.1]" = "Code will not load on systems earlier than 5.1. [5.1]";
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[6.0]" = "iOS 6.0";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[6.0]" = "Code will not load on systems earlier than 6.0. [6.0]";

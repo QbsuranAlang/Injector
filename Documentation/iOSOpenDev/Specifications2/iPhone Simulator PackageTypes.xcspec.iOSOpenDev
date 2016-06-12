@@ -1,0 +1,263 @@
+/**
+    iPhone Simulator PackageTypes.xcspec
+    
+    Copyright (c) 1999-2008 Apple Inc.  All rights reserved.
+
+    Package type specifications for iPhone Simulator.
+*/
+(
+    // CFBundle wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.wrapper;
+        Name = "Wrapper";
+        Description = "Wrapper";
+        DefaultBuildSettings = {
+            WRAPPER_PREFIX = "";
+            WRAPPER_SUFFIX = ".bundle";
+            WRAPPER_NAME = "$(WRAPPER_PREFIX)$(PRODUCT_NAME)$(WRAPPER_SUFFIX)";
+            CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)";   // shallow
+            SHALLOW_BUNDLE = YES;
+            EXECUTABLE_PREFIX = "";
+            EXECUTABLE_SUFFIX = "";
+            EXECUTABLE_NAME = "$(EXECUTABLE_PREFIX)$(PRODUCT_NAME)$(EXECUTABLE_VARIANT_SUFFIX)$(EXECUTABLE_SUFFIX)";
+            EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)";
+            EXECUTABLE_PATH = "$(EXECUTABLE_FOLDER_PATH)/$(EXECUTABLE_NAME)";
+            INFOPLIST_PATH = "$(CONTENTS_FOLDER_PATH)/Info.plist";
+            INFOSTRINGS_PATH = "$(LOCALIZED_RESOURCES_FOLDER_PATH)/InfoPlist.strings";
+            PKGINFO_PATH = "$(CONTENTS_FOLDER_PATH)/PkgInfo";
+            PBDEVELOPMENTPLIST_PATH = "$(CONTENTS_FOLDER_PATH)/pbdevelopment.plist";
+            VERSIONPLIST_PATH = "$(CONTENTS_FOLDER_PATH)/version.plist";
+            PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+            PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+            EXECUTABLES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Executables";
+            FRAMEWORKS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Frameworks";
+            SHARED_FRAMEWORKS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/SharedFrameworks";
+            SHARED_SUPPORT_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/SharedSupport";
+            UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)";
+            LOCALIZED_RESOURCES_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/$(DEVELOPMENT_LANGUAGE).lproj";
+            DOCUMENTATION_FOLDER_PATH = "$(LOCALIZED_RESOURCES_FOLDER_PATH)/Documentation";
+            PLUGINS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PlugIns";
+            SCRIPTS_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Scripts";
+            JAVA_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Java";
+        };
+        ProductReference = {
+            FileType = wrapper.cfbundle;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // Application wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.wrapper.application;
+        BasedOn = com.apple.package-type.wrapper;
+        Name = "Application Wrapper";
+        Description = "Application Wrapper";
+        DefaultBuildSettings = {
+            GENERATE_PKGINFO_FILE = YES;
+        };
+        ProductReference = {
+            FileType = wrapper.application;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = YES;
+        };
+    },
+
+    // Unit Test Bundle wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.bundle.unit-test;
+        BasedOn = com.apple.package-type.wrapper;
+        Name = "Unit Test Bundle";
+        Description = "Unit Test Bundle";
+        DefaultBuildSettings = {
+            WRAPPER_SUFFIX = "xctest";
+        };
+        ProductReference = {
+            FileType = wrapper.cfbundle;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // Legacy OCUnit Test Bundle wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.bundle.ocunit-test;
+        BasedOn = com.apple.package-type.wrapper;
+        Name = "OCUnit Test Bundle";
+        Description = "OCUnit Test Bundle";
+        DefaultBuildSettings = {
+            WRAPPER_SUFFIX = "octest";
+        };
+        ProductReference = {
+            FileType = wrapper.cfbundle;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // Static library ('ar' archive containing .o files)
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.static-library;
+        Name = "Mach-O Static Library";
+        Description = "Mach-O static library";
+        DefaultBuildSettings = {
+            EXECUTABLE_PREFIX = "lib";
+            EXECUTABLE_SUFFIX = ".a";
+            EXECUTABLE_NAME = "$(EXECUTABLE_PREFIX)$(PRODUCT_NAME)$(EXECUTABLE_VARIANT_SUFFIX)$(EXECUTABLE_SUFFIX)";
+            EXECUTABLE_PATH = "$(EXECUTABLE_NAME)";
+        };
+        ProductReference = {
+            FileType = archive.ar;
+            Name = "$(EXECUTABLE_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // Mach-O dynamic library
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.mach-o-dylib;
+        Name = "Mach-O Dynamic Library";
+        Description = "Mach-O dynamic library";
+        DefaultBuildSettings = {
+            EXECUTABLE_PREFIX = "";
+            EXECUTABLE_SUFFIX = "";
+            EXECUTABLE_NAME = "$(EXECUTABLE_PREFIX)$(PRODUCT_NAME)$(EXECUTABLE_VARIANT_SUFFIX)$(EXECUTABLE_SUFFIX)";
+            EXECUTABLE_PATH = "$(EXECUTABLE_NAME)";
+        };
+        ProductReference = {
+            FileType = compiled.mach-o.dylib;
+            Name = "$(EXECUTABLE_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // Mach-O bundle (not related to a CFBundle)
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.mach-o-bundle;
+        Name = "Mach-O Loadable";
+        Description = "Mach-O loadable";
+        DefaultBuildSettings = {
+            EXECUTABLE_PREFIX = "";
+            EXECUTABLE_SUFFIX = ".dylib";
+            EXECUTABLE_NAME = "$(EXECUTABLE_PREFIX)$(PRODUCT_NAME)$(EXECUTABLE_VARIANT_SUFFIX)$(EXECUTABLE_SUFFIX)";
+            EXECUTABLE_PATH = "$(EXECUTABLE_NAME)";
+        };
+        ProductReference = {
+            FileType = compiled.mach-o.bundle;
+            Name = "$(EXECUTABLE_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // Framework wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.wrapper.framework;
+        Name = "Framework Wrapper";
+        Description = "Framework wrapper";
+        DefaultBuildSettings = {
+            WRAPPER_PREFIX = "";
+            WRAPPER_SUFFIX = ".framework";
+            WRAPPER_NAME = "$(WRAPPER_PREFIX)$(PRODUCT_NAME)$(WRAPPER_SUFFIX)";
+            VERSIONS_FOLDER_PATH = "$(WRAPPER_NAME)";   //shallow
+            CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)";   //shallow
+            SHALLOW_BUNDLE = YES;
+            CURRENT_VERSION = "Current";
+            EXECUTABLE_PREFIX = "";
+            EXECUTABLE_SUFFIX = "";
+            EXECUTABLE_NAME = "$(EXECUTABLE_PREFIX)$(PRODUCT_NAME)$(EXECUTABLE_VARIANT_SUFFIX)$(EXECUTABLE_SUFFIX)";
+            EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)";
+            EXECUTABLE_PATH = "$(EXECUTABLE_FOLDER_PATH)/$(EXECUTABLE_NAME)";
+            INFOPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Info.plist";
+            INFOPLISTSTRINGS_PATH = "$(LOCALIZED_RESOURCES_FOLDER_PATH)/InfoPlist.strings";
+            PKGINFO_PATH = "$(WRAPPER_NAME)/PkgInfo";
+            PBDEVELOPMENTPLIST_PATH = "$(CONTENTS_FOLDER_PATH)/pbdevelopment.plist";
+            VERSIONPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/version.plist";
+            PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+            PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+            EXECUTABLES_FOLDER_PATH = "$(LOCALIZED_RESOURCES_FOLDER_PATH)";
+            FRAMEWORKS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Frameworks";
+            SHARED_FRAMEWORKS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/SharedFrameworks";
+            SHARED_SUPPORT_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)";
+            UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)";    //shallow
+            LOCALIZED_RESOURCES_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/$(DEVELOPMENT_LANGUAGE).lproj";
+            DOCUMENTATION_FOLDER_PATH = "$(LOCALIZED_RESOURCES_FOLDER_PATH)/Documentation";
+            PLUGINS_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)";
+            SCRIPTS_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Scripts";
+            JAVA_FOLDER_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Java";
+        };
+        ProductReference = {
+            FileType = wrapper.framework;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // Static framework wrapper (like a framework, except that it contains a libX.a instead of a dylib)
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.wrapper.framework.static;
+        Name = "Mach-O Static Framework";
+        Description = "Mach-O static framework";
+        BasedOn = com.apple.package-type.wrapper.framework;
+        DefaultBuildSettings = {
+            EXECUTABLE_PREFIX = "lib";
+            EXECUTABLE_SUFFIX = ".a";
+            EXECUTABLE_NAME = "$(EXECUTABLE_PREFIX)$(PRODUCT_NAME)$(EXECUTABLE_VARIANT_SUFFIX)$(EXECUTABLE_SUFFIX)";
+        };
+        ProductReference = {
+            FileType = wrapper.framework.static;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // XPC Service wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.xpc-service;
+        BasedOn = com.apple.package-type.wrapper;
+        Name = "XPC Service";
+        Description = "XPC Service";
+        DefaultBuildSettings = {
+            WRAPPER_SUFFIX = ".xpc";
+        };
+        ProductReference = {
+            FileType = wrapper.xpc-service;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+    
+    // PlugInKit PlugIn wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.pluginkit-plugin;
+        BasedOn = com.apple.package-type.xpc-service;
+        Name = "PlugInKit PlugIn";
+        Description = "PlugInKit PlugIn";
+        DefaultBuildSettings = {
+            WRAPPER_SUFFIX = ".pluginkit";
+        };
+        ProductReference = {
+            FileType = wrapper.app-extension;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+    },
+
+    // App Extension wrapper
+    {   Type = PackageType;
+        Identifier = com.apple.package-type.app-extension;
+        BasedOn = com.apple.package-type.pluginkit-plugin;
+        Name = "App Extension";
+        Description = "App Extension";
+        DefaultBuildSettings = {
+            WRAPPER_SUFFIX = ".appex";
+        };
+        ProductReference = {
+            FileType = wrapper.app-extension;
+            Name = "$(WRAPPER_NAME)";
+            IsLaunchable = NO;
+        };
+
+    },
+
+)
+

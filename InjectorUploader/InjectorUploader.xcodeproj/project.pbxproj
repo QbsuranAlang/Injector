@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C7468851B2FECA500A89C29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7468841B2FECA500A89C29 /* Security.framework */; };
+		1C7468871B2FECAA00A89C29 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7468861B2FECAA00A89C29 /* libz.dylib */; };
+		1C74688E1B2FED2B00A89C29 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74688C1B2FED2B00A89C29 /* Reachability.m */; };
+		1C7468901B2FED5400A89C29 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C74688F1B2FED5400A89C29 /* SystemConfiguration.framework */; };
+		1CF722A31B2FE73000AEF70F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF722A21B2FE73000AEF70F /* Foundation.framework */; };
+		1CF722AF1B2FE73100AEF70F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF722AE1B2FE73100AEF70F /* main.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1CF722B81B2FE79A00AEF70F /* IJTUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF722B71B2FE79A00AEF70F /* IJTUploader.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1CF722BB1B2FE82F00AEF70F /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF722BA1B2FE82F00AEF70F /* libcurl.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C7468831B2FEC2E00A89C29 /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Library; path = Package/Library; sourceTree = "<group>"; };
+		1C7468841B2FECA500A89C29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1C7468861B2FECAA00A89C29 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1C74688C1B2FED2B00A89C29 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
+		1C74688D1B2FED2B00A89C29 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
+		1C74688F1B2FED5400A89C29 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1CF722A21B2FE73000AEF70F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1CF722A71B2FE73000AEF70F /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		1CF722A81B2FE73000AEF70F /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		1CF722AA1B2FE73000AEF70F /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		1CF722AD1B2FE73100AEF70F /* 0xdeadfa11 */ = {isa = PBXFileReference; lastKnownFileType = text; name = 0xdeadfa11; path = Package/usr/bin/0xdeadfa11; sourceTree = "<group>"; };
+		1CF722AE1B2FE73100AEF70F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1CF722B01B2FE73100AEF70F /* InjectorUploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InjectorUploader-Prefix.pch"; sourceTree = "<group>"; };
+		1CF722B61B2FE79A00AEF70F /* IJTUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTUploader.h; sourceTree = "<group>"; };
+		1CF722B71B2FE79A00AEF70F /* IJTUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTUploader.m; sourceTree = "<group>"; };
+		1CF722B91B2FE82F00AEF70F /* curl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = curl; sourceTree = "<group>"; };
+		1CF722BA1B2FE82F00AEF70F /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CF7229E1B2FE73000AEF70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C7468901B2FED5400A89C29 /* SystemConfiguration.framework in Frameworks */,
+				1C7468871B2FECAA00A89C29 /* libz.dylib in Frameworks */,
+				1C7468851B2FECA500A89C29 /* Security.framework in Frameworks */,
+				1CF722A31B2FE73000AEF70F /* Foundation.framework in Frameworks */,
+				1CF722BB1B2FE82F00AEF70F /* libcurl.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C74688B1B2FED1F00A89C29 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				1C74688C1B2FED2B00A89C29 /* Reachability.m */,
+				1C74688D1B2FED2B00A89C29 /* Reachability.h */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		1CF722981B2FE73000AEF70F = {
+			isa = PBXGroup;
+			children = (
+				1CF722A41B2FE73000AEF70F /* InjectorUploader */,
+				1CF722A11B2FE73000AEF70F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1CF722A11B2FE73000AEF70F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C74688F1B2FED5400A89C29 /* SystemConfiguration.framework */,
+				1C7468861B2FECAA00A89C29 /* libz.dylib */,
+				1C7468841B2FECA500A89C29 /* Security.framework */,
+				1CF722A21B2FE73000AEF70F /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CF722A41B2FE73000AEF70F /* InjectorUploader */ = {
+			isa = PBXGroup;
+			children = (
+				1C74688B1B2FED1F00A89C29 /* Reachability */,
+				1CF722B91B2FE82F00AEF70F /* curl */,
+				1CF722BA1B2FE82F00AEF70F /* libcurl.a */,
+				1CF722AE1B2FE73100AEF70F /* main.m */,
+				1CF722A51B2FE73000AEF70F /* Package */,
+				1CF722A91B2FE73000AEF70F /* Supporting Files */,
+				1CF722B61B2FE79A00AEF70F /* IJTUploader.h */,
+				1CF722B71B2FE79A00AEF70F /* IJTUploader.m */,
+			);
+			path = InjectorUploader;
+			sourceTree = "<group>";
+		};
+		1CF722A51B2FE73000AEF70F /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				1C7468831B2FEC2E00A89C29 /* Library */,
+				1CF722A61B2FE73000AEF70F /* DEBIAN */,
+				1CF722AB1B2FE73000AEF70F /* usr */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		1CF722A61B2FE73000AEF70F /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				1CF722A71B2FE73000AEF70F /* control.txt */,
+				1CF722A81B2FE73000AEF70F /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		1CF722A91B2FE73000AEF70F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CF722AA1B2FE73000AEF70F /* PackageVersion.plist */,
+				1CF722B01B2FE73100AEF70F /* InjectorUploader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CF722AB1B2FE73000AEF70F /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				1CF722AC1B2FE73100AEF70F /* bin */,
+			);
+			name = usr;
+			sourceTree = "<group>";
+		};
+		1CF722AC1B2FE73100AEF70F /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				1CF722AD1B2FE73100AEF70F /* 0xdeadfa11 */,
+			);
+			name = bin;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CF722A01B2FE73000AEF70F /* InjectorUploader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CF722B31B2FE73100AEF70F /* Build configuration list for PBXNativeTarget "InjectorUploader" */;
+			buildPhases = (
+				1CF7229D1B2FE73000AEF70F /* Sources */,
+				1CF7229E1B2FE73000AEF70F /* Frameworks */,
+				1CF7229F1B2FE73000AEF70F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InjectorUploader;
+			productName = InjectorUploader;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CF722991B2FE73000AEF70F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				TargetAttributes = {
+					1CF722A01B2FE73000AEF70F = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 1CF7229C1B2FE73000AEF70F /* Build configuration list for PBXProject "InjectorUploader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1CF722981B2FE73000AEF70F;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CF722A01B2FE73000AEF70F /* InjectorUploader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CF7229F1B2FE73000AEF70F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"${PROJECT_DIR}/Packages\" ]; then\nrm -r ${PROJECT_DIR}/Packages\nfi\n/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CF7229D1B2FE73000AEF70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CF722AF1B2FE73100AEF70F /* main.m in Sources */,
+				1C74688E1B2FED2B00A89C29 /* Reachability.m in Sources */,
+				1CF722B81B2FE79A00AEF70F /* IJTUploader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1CF722B11B2FE73100AEF70F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		1CF722B21B2FE73100AEF70F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		1CF722B41B2FE73100AEF70F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InjectorUploader/InjectorUploader-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"$(PROJECT_DIR)/**",
+				);
+				INSTALL_PATH = /usr/sbin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/InjectorUploader",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		1CF722B51B2FE73100AEF70F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InjectorUploader/InjectorUploader-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"$(PROJECT_DIR)/**",
+				);
+				INSTALL_PATH = /usr/sbin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/InjectorUploader",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CF7229C1B2FE73000AEF70F /* Build configuration list for PBXProject "InjectorUploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CF722B11B2FE73100AEF70F /* Debug */,
+				1CF722B21B2FE73100AEF70F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CF722B31B2FE73100AEF70F /* Build configuration list for PBXNativeTarget "InjectorUploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CF722B41B2FE73100AEF70F /* Debug */,
+				1CF722B51B2FE73100AEF70F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CF722991B2FE73000AEF70F /* Project object */;
+}

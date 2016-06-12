@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C0B534D1AD92F6A00E63131 /* libpcap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0B534C1AD92F6900E63131 /* libpcap.a */; };
+		1C0C14C21BAAB460001507AD /* IJTConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C14C11BAAB460001507AD /* IJTConnection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1C0C14C61BAAB9D9001507AD /* IJTRoutetable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C14C41BAAB9D9001507AD /* IJTRoutetable.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1C0C14C91BAABB49001507AD /* IJTHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C14C71BAABB49001507AD /* IJTHTTP.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1C0C14CC1BAABBE2001507AD /* IJTJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C14CA1BAABBE2001507AD /* IJTJson.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1C0C14CE1BAABDB5001507AD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0C14CD1BAABDB4001507AD /* CoreTelephony.framework */; };
+		1C1A20471AEC791C002A90DF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A20461AEC791C002A90DF /* Reachability.m */; };
+		1C1A20491AEC7E56002A90DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1A20481AEC7E56002A90DF /* SystemConfiguration.framework */; };
+		1C466EA81ADD73EF000FAA26 /* IJTDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C466EA71ADD73EF000FAA26 /* IJTDatabase.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1C4F23E71ADA72F8004A48F5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4F23E61ADA72F8004A48F5 /* libz.dylib */; };
+		1C4F23EE1ADA7362004A48F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4F23E81ADA731F004A48F5 /* Security.framework */; };
+		1C4F23F11ADA7AA5004A48F5 /* IJTDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4F23F01ADA7AA5004A48F5 /* IJTDaemon.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1C5E5D971BF3681F007E74BB /* IJTArptable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5E5D961BF3681F007E74BB /* IJTArptable.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1C9EBF4F1AD9648C0055EA49 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9EBF4E1AD9648C0055EA49 /* libcurl.a */; };
+		1CA45A2A1AD82E6B001E485C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA45A291AD82E6B001E485C /* Foundation.framework */; };
+		1CA45A3C1AD82E6B001E485C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA45A3B1AD82E6B001E485C /* main.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1CD8FC411B65DEE400B115E7 /* IJTPacketReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD8FC3F1B65DEE400B115E7 /* IJTPacketReader.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1CD8FC431B65E16600B115E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD8FC421B65E16600B115E7 /* UIKit.framework */; };
+		1CECD60E1B296C0B00920380 /* IJTFirewall.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECD5FD1B296C0B00920380 /* IJTFirewall.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C06B8201AE2463B00265782 /* InjectorDaemon */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = InjectorDaemon; sourceTree = "<group>"; };
+		1C0B534C1AD92F6900E63131 /* libpcap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpcap.a; sourceTree = "<group>"; };
+		1C0C14C01BAAB460001507AD /* IJTConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTConnection.h; sourceTree = "<group>"; };
+		1C0C14C11BAAB460001507AD /* IJTConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTConnection.m; sourceTree = "<group>"; };
+		1C0C14C41BAAB9D9001507AD /* IJTRoutetable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTRoutetable.m; sourceTree = "<group>"; };
+		1C0C14C51BAAB9D9001507AD /* IJTRoutetable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTRoutetable.h; sourceTree = "<group>"; };
+		1C0C14C71BAABB49001507AD /* IJTHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTHTTP.m; sourceTree = "<group>"; };
+		1C0C14C81BAABB49001507AD /* IJTHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTHTTP.h; sourceTree = "<group>"; };
+		1C0C14CA1BAABBE2001507AD /* IJTJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTJson.m; sourceTree = "<group>"; };
+		1C0C14CB1BAABBE2001507AD /* IJTJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTJson.h; sourceTree = "<group>"; };
+		1C0C14CD1BAABDB4001507AD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1C0C14D01BAAC056001507AD /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = route.h; path = net/route.h; sourceTree = "<group>"; };
+		1C0C14D11BAAC056001507AD /* if_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = if_types.h; path = net/if_types.h; sourceTree = "<group>"; };
+		1C1A20451AEC791C002A90DF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1C1A20461AEC791C002A90DF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1C1A20481AEC7E56002A90DF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1C1D3D5A1AE9A06D002A65C0 /* preinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
+		1C466EA61ADD73EF000FAA26 /* IJTDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTDatabase.h; sourceTree = "<group>"; };
+		1C466EA71ADD73EF000FAA26 /* IJTDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTDatabase.m; sourceTree = "<group>"; };
+		1C4F23E61ADA72F8004A48F5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1C4F23E81ADA731F004A48F5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1C4F23EA1ADA7327004A48F5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1C4F23EC1ADA7335004A48F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1C4F23EF1ADA7AA5004A48F5 /* IJTDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTDaemon.h; sourceTree = "<group>"; };
+		1C4F23F01ADA7AA5004A48F5 /* IJTDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTDaemon.m; sourceTree = "<group>"; };
+		1C5E5D951BF3681F007E74BB /* IJTArptable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTArptable.h; sourceTree = "<group>"; };
+		1C5E5D961BF3681F007E74BB /* IJTArptable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTArptable.m; sourceTree = "<group>"; };
+		1C5E5D991BF36856007E74BB /* if_ether.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = if_ether.h; path = netinet/if_ether.h; sourceTree = "<group>"; };
+		1C5E5D9A1BF3686A007E74BB /* if_arp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = if_arp.h; path = net/if_arp.h; sourceTree = "<group>"; };
+		1C96B4FE1AE10D4A0085AF30 /* tw.edu.mcu.cce.nrl.InjectorDaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tw.edu.mcu.cce.nrl.InjectorDaemon.plist; sourceTree = "<group>"; };
+		1C9EBF4E1AD9648C0055EA49 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
+		1CA45A261AD82E6B001E485C /* InjectorDaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = InjectorDaemon; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA45A291AD82E6B001E485C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1CA45A2E1AD82E6B001E485C /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		1CA45A2F1AD82E6B001E485C /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		1CA45A311AD82E6B001E485C /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		1CA45A3B1AD82E6B001E485C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1CA45A3D1AD82E6B001E485C /* InjectorDaemon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InjectorDaemon-Prefix.pch"; sourceTree = "<group>"; };
+		1CD8FC3F1B65DEE400B115E7 /* IJTPacketReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTPacketReader.m; sourceTree = "<group>"; };
+		1CD8FC401B65DEE400B115E7 /* IJTPacketReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTPacketReader.h; sourceTree = "<group>"; };
+		1CD8FC421B65E16600B115E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1CE527121ADF5E4F004B361E /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+		1CE527131ADF5F15004B361E /* prerm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
+		1CECD5FC1B296C0B00920380 /* IJTFirewall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTFirewall.h; sourceTree = "<group>"; };
+		1CECD5FD1B296C0B00920380 /* IJTFirewall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTFirewall.m; sourceTree = "<group>"; };
+		1CECD5FF1B296C0B00920380 /* tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
+		1CECD6011B296C0B00920380 /* pfvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pfvar.h; sourceTree = "<group>"; };
+		1CECD6021B296C0B00920380 /* radix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radix.h; sourceTree = "<group>"; };
+		1CECD6071B296C0B00920380 /* in.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = in.h; sourceTree = "<group>"; };
+		1CECD6081B296C0B00920380 /* in_systm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = in_systm.h; sourceTree = "<group>"; };
+		1CECD6091B296C0B00920380 /* ip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ip.h; sourceTree = "<group>"; };
+		1CECD60A1B296C0B00920380 /* ip_icmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ip_icmp.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CA45A231AD82E6B001E485C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C0C14CE1BAABDB5001507AD /* CoreTelephony.framework in Frameworks */,
+				1CD8FC431B65E16600B115E7 /* UIKit.framework in Frameworks */,
+				1C1A20491AEC7E56002A90DF /* SystemConfiguration.framework in Frameworks */,
+				1C4F23EE1ADA7362004A48F5 /* Security.framework in Frameworks */,
+				1C4F23E71ADA72F8004A48F5 /* libz.dylib in Frameworks */,
+				1CA45A2A1AD82E6B001E485C /* Foundation.framework in Frameworks */,
+				1C0B534D1AD92F6A00E63131 /* libpcap.a in Frameworks */,
+				1C9EBF4F1AD9648C0055EA49 /* libcurl.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C06B81F1AE2463B00265782 /* sbin */ = {
+			isa = PBXGroup;
+			children = (
+				1C06B8201AE2463B00265782 /* InjectorDaemon */,
+			);
+			name = sbin;
+			path = Package/usr/sbin;
+			sourceTree = "<group>";
+		};
+		1C0C14CF1BAAC04E001507AD /* net */ = {
+			isa = PBXGroup;
+			children = (
+				1C5E5D9A1BF3686A007E74BB /* if_arp.h */,
+				1C0C14D01BAAC056001507AD /* route.h */,
+				1C0C14D11BAAC056001507AD /* if_types.h */,
+			);
+			name = net;
+			sourceTree = "<group>";
+		};
+		1C1A20441AEC791C002A90DF /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				1C1A20451AEC791C002A90DF /* Reachability.h */,
+				1C1A20461AEC791C002A90DF /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		1C5E5D981BF3684C007E74BB /* netinet */ = {
+			isa = PBXGroup;
+			children = (
+				1C5E5D991BF36856007E74BB /* if_ether.h */,
+			);
+			name = netinet;
+			sourceTree = "<group>";
+		};
+		1C96B4FC1AE10D4A0085AF30 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1C96B4FD1AE10D4A0085AF30 /* LaunchDaemons */,
+			);
+			name = Library;
+			path = Package/Library;
+			sourceTree = "<group>";
+		};
+		1C96B4FD1AE10D4A0085AF30 /* LaunchDaemons */ = {
+			isa = PBXGroup;
+			children = (
+				1C96B4FE1AE10D4A0085AF30 /* tw.edu.mcu.cce.nrl.InjectorDaemon.plist */,
+			);
+			path = LaunchDaemons;
+			sourceTree = "<group>";
+		};
+		1CA45A1D1AD82E6B001E485C = {
+			isa = PBXGroup;
+			children = (
+				1CA45A2B1AD82E6B001E485C /* InjectorDaemon */,
+				1CA45A281AD82E6B001E485C /* Frameworks */,
+				1CA45A271AD82E6B001E485C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1CA45A271AD82E6B001E485C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CA45A261AD82E6B001E485C /* InjectorDaemon */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CA45A281AD82E6B001E485C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C0C14CD1BAABDB4001507AD /* CoreTelephony.framework */,
+				1CD8FC421B65E16600B115E7 /* UIKit.framework */,
+				1C1A20481AEC7E56002A90DF /* SystemConfiguration.framework */,
+				1C4F23EC1ADA7335004A48F5 /* CoreGraphics.framework */,
+				1C4F23EA1ADA7327004A48F5 /* CFNetwork.framework */,
+				1C4F23E81ADA731F004A48F5 /* Security.framework */,
+				1C4F23E61ADA72F8004A48F5 /* libz.dylib */,
+				1CA45A291AD82E6B001E485C /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CA45A2B1AD82E6B001E485C /* InjectorDaemon */ = {
+			isa = PBXGroup;
+			children = (
+				1C5E5D951BF3681F007E74BB /* IJTArptable.h */,
+				1C5E5D961BF3681F007E74BB /* IJTArptable.m */,
+				1C5E5D981BF3684C007E74BB /* netinet */,
+				1C0C14CF1BAAC04E001507AD /* net */,
+				1C0C14CA1BAABBE2001507AD /* IJTJson.m */,
+				1C0C14CB1BAABBE2001507AD /* IJTJson.h */,
+				1C0C14C71BAABB49001507AD /* IJTHTTP.m */,
+				1C0C14C81BAABB49001507AD /* IJTHTTP.h */,
+				1C0C14C41BAAB9D9001507AD /* IJTRoutetable.m */,
+				1C0C14C51BAAB9D9001507AD /* IJTRoutetable.h */,
+				1CD8FC3F1B65DEE400B115E7 /* IJTPacketReader.m */,
+				1CD8FC401B65DEE400B115E7 /* IJTPacketReader.h */,
+				1CECD5FB1B296C0B00920380 /* IJTFirewall */,
+				1C1A20441AEC791C002A90DF /* Reachability */,
+				1C9EBF4E1AD9648C0055EA49 /* libcurl.a */,
+				1C0B534C1AD92F6900E63131 /* libpcap.a */,
+				1CA45A3B1AD82E6B001E485C /* main.m */,
+				1C4F23EF1ADA7AA5004A48F5 /* IJTDaemon.h */,
+				1C4F23F01ADA7AA5004A48F5 /* IJTDaemon.m */,
+				1C466EA61ADD73EF000FAA26 /* IJTDatabase.h */,
+				1C466EA71ADD73EF000FAA26 /* IJTDatabase.m */,
+				1CA45A2C1AD82E6B001E485C /* Package */,
+				1CA45A301AD82E6B001E485C /* Supporting Files */,
+				1C0C14C01BAAB460001507AD /* IJTConnection.h */,
+				1C0C14C11BAAB460001507AD /* IJTConnection.m */,
+			);
+			path = InjectorDaemon;
+			sourceTree = "<group>";
+		};
+		1CA45A2C1AD82E6B001E485C /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				1C96B4FC1AE10D4A0085AF30 /* Library */,
+				1CA45A2D1AD82E6B001E485C /* DEBIAN */,
+				1CA45A381AD82E6B001E485C /* usr */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		1CA45A2D1AD82E6B001E485C /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				1C1D3D5A1AE9A06D002A65C0 /* preinst */,
+				1CE527131ADF5F15004B361E /* prerm */,
+				1CE527121ADF5E4F004B361E /* postinst */,
+				1CA45A2E1AD82E6B001E485C /* control.txt */,
+				1CA45A2F1AD82E6B001E485C /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		1CA45A301AD82E6B001E485C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CA45A311AD82E6B001E485C /* PackageVersion.plist */,
+				1CA45A3D1AD82E6B001E485C /* InjectorDaemon-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CA45A381AD82E6B001E485C /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				1C06B81F1AE2463B00265782 /* sbin */,
+			);
+			name = usr;
+			sourceTree = "<group>";
+		};
+		1CECD5FB1B296C0B00920380 /* IJTFirewall */ = {
+			isa = PBXGroup;
+			children = (
+				1CECD5FC1B296C0B00920380 /* IJTFirewall.h */,
+				1CECD5FD1B296C0B00920380 /* IJTFirewall.m */,
+				1CECD5FE1B296C0B00920380 /* libkern */,
+				1CECD6001B296C0B00920380 /* net */,
+				1CECD6031B296C0B00920380 /* netinet */,
+			);
+			path = IJTFirewall;
+			sourceTree = "<group>";
+		};
+		1CECD5FE1B296C0B00920380 /* libkern */ = {
+			isa = PBXGroup;
+			children = (
+				1CECD5FF1B296C0B00920380 /* tree.h */,
+			);
+			path = libkern;
+			sourceTree = "<group>";
+		};
+		1CECD6001B296C0B00920380 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				1CECD6011B296C0B00920380 /* pfvar.h */,
+				1CECD6021B296C0B00920380 /* radix.h */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+		1CECD6031B296C0B00920380 /* netinet */ = {
+			isa = PBXGroup;
+			children = (
+				1CECD6071B296C0B00920380 /* in.h */,
+				1CECD6081B296C0B00920380 /* in_systm.h */,
+				1CECD6091B296C0B00920380 /* ip.h */,
+				1CECD60A1B296C0B00920380 /* ip_icmp.h */,
+			);
+			path = netinet;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CA45A251AD82E6B001E485C /* InjectorDaemon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CA45A401AD82E6B001E485C /* Build configuration list for PBXNativeTarget "InjectorDaemon" */;
+			buildPhases = (
+				1CA45A221AD82E6B001E485C /* Sources */,
+				1CA45A231AD82E6B001E485C /* Frameworks */,
+				1CA45A241AD82E6B001E485C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InjectorDaemon;
+			productName = InjectorDaemon;
+			productReference = 1CA45A261AD82E6B001E485C /* InjectorDaemon */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CA45A1E1AD82E6B001E485C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				TargetAttributes = {
+					1CA45A251AD82E6B001E485C = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 1CA45A211AD82E6B001E485C /* Build configuration list for PBXProject "InjectorDaemon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1CA45A1D1AD82E6B001E485C;
+			productRefGroup = 1CA45A271AD82E6B001E485C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CA45A251AD82E6B001E485C /* InjectorDaemon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CA45A241AD82E6B001E485C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"${PROJECT_DIR}/Packages\" ]; then\nrm -r ${PROJECT_DIR}/Packages\nfi\n/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CA45A221AD82E6B001E485C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C0C14C61BAAB9D9001507AD /* IJTRoutetable.m in Sources */,
+				1CA45A3C1AD82E6B001E485C /* main.m in Sources */,
+				1C466EA81ADD73EF000FAA26 /* IJTDatabase.m in Sources */,
+				1C0C14C21BAAB460001507AD /* IJTConnection.m in Sources */,
+				1C0C14C91BAABB49001507AD /* IJTHTTP.m in Sources */,
+				1C4F23F11ADA7AA5004A48F5 /* IJTDaemon.m in Sources */,
+				1CECD60E1B296C0B00920380 /* IJTFirewall.m in Sources */,
+				1CD8FC411B65DEE400B115E7 /* IJTPacketReader.m in Sources */,
+				1C5E5D971BF3681F007E74BB /* IJTArptable.m in Sources */,
+				1C1A20471AEC791C002A90DF /* Reachability.m in Sources */,
+				1C0C14CC1BAABBE2001507AD /* IJTJson.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1CA45A3E1AD82E6B001E485C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		1CA45A3F1AD82E6B001E485C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		1CA45A411AD82E6B001E485C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				ENABLE_BITCODE = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InjectorDaemon/InjectorDaemon-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					/usr/local/opt/libpcap/include,
+					"$(PROJECT_DIR)/InjectorDaemon/**",
+					/usr/local/opt/libnet/include,
+				);
+				INSTALL_PATH = /usr/sbin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/InjectorDaemon",
+				);
+				OTHER_LDFLAGS = (
+					"-lcurl",
+					"-lpcap",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		1CA45A421AD82E6B001E485C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				ENABLE_BITCODE = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InjectorDaemon/InjectorDaemon-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					/usr/local/opt/libpcap/include,
+					"$(PROJECT_DIR)/InjectorDaemon/**",
+					/usr/local/opt/libnet/include,
+				);
+				INSTALL_PATH = /usr/sbin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/InjectorDaemon",
+				);
+				OTHER_LDFLAGS = (
+					"-lcurl",
+					"-lpcap",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CA45A211AD82E6B001E485C /* Build configuration list for PBXProject "InjectorDaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CA45A3E1AD82E6B001E485C /* Debug */,
+				1CA45A3F1AD82E6B001E485C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CA45A401AD82E6B001E485C /* Build configuration list for PBXNativeTarget "InjectorDaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CA45A411AD82E6B001E485C /* Debug */,
+				1CA45A421AD82E6B001E485C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CA45A1E1AD82E6B001E485C /* Project object */;
+}

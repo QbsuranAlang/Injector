@@ -1,0 +1,51 @@
+#!/bin/bash
+
+mkdir -p /var/db/launchd.db/com.apple.launchd
+
+#daemon
+chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+chown root:wheel /Applications/Injector.app/InjectorDaemon
+
+launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+
+#uploader
+chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
+chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
+chown root:wheel /Applications/Injector.app/InjectorUploader
+
+launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
+
+#app
+cd "/Applications/Injector.app/"
+
+# process origin binary
+mv Injector Injector_
+chown root.wheel Injector_
+chmod +s         Injector_
+
+cont=`cat <<"EOF"
+#!/bin/bash
+dir=$(dirname "$0")
+exec "${dir}"/Injector_ "$@"
+EOF
+`
+# create new fake binary
+echo -e "$cont" > Injector
+chown root.wheel  Injector
+chmod +x          Injector
+
+# uicache
+su mobile -c /usr/bin/uicache
+exit #dont resping
+echo ""
+echo ""
+echo ""
+for i in 1 2 3 4 5 6 7 8 9 10
+do
+echo "Ready to Respring!!!"
+sleep 0.1
+done
+sleep 1.5
+/usr/bin/killall SpringBoard
+

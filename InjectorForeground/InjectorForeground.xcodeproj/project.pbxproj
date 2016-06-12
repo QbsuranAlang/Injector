@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C57FB3C1B0485F60069A1D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C57FB3B1B0485F60069A1D8 /* Foundation.framework */; };
+		1C57FB481B0485F60069A1D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C57FB471B0485F60069A1D8 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C57FB381B0485F60069A1D8 /* InjectorForeground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = InjectorForeground; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C57FB3B1B0485F60069A1D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1C57FB401B0485F60069A1D8 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		1C57FB411B0485F60069A1D8 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		1C57FB431B0485F60069A1D8 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		1C57FB471B0485F60069A1D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C57FB491B0485F60069A1D8 /* InjectorForeground-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InjectorForeground-Prefix.pch"; sourceTree = "<group>"; };
+		1C57FB501B04860F0069A1D8 /* 0xdeadfa11 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 0xdeadfa11; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C57FB351B0485F60069A1D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C57FB3C1B0485F60069A1D8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C57FB2F1B0485F60069A1D8 = {
+			isa = PBXGroup;
+			children = (
+				1C57FB3D1B0485F60069A1D8 /* InjectorForeground */,
+				1C57FB3A1B0485F60069A1D8 /* Frameworks */,
+				1C57FB391B0485F60069A1D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C57FB391B0485F60069A1D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB381B0485F60069A1D8 /* InjectorForeground */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C57FB3A1B0485F60069A1D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB3B1B0485F60069A1D8 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C57FB3D1B0485F60069A1D8 /* InjectorForeground */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB471B0485F60069A1D8 /* main.m */,
+				1C57FB3E1B0485F60069A1D8 /* Package */,
+				1C57FB421B0485F60069A1D8 /* Supporting Files */,
+			);
+			path = InjectorForeground;
+			sourceTree = "<group>";
+		};
+		1C57FB3E1B0485F60069A1D8 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB3F1B0485F60069A1D8 /* DEBIAN */,
+				1C57FB441B0485F60069A1D8 /* usr */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		1C57FB3F1B0485F60069A1D8 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB401B0485F60069A1D8 /* control.txt */,
+				1C57FB411B0485F60069A1D8 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		1C57FB421B0485F60069A1D8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB431B0485F60069A1D8 /* PackageVersion.plist */,
+				1C57FB491B0485F60069A1D8 /* InjectorForeground-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C57FB441B0485F60069A1D8 /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB4F1B04860F0069A1D8 /* sbin */,
+			);
+			name = usr;
+			sourceTree = "<group>";
+		};
+		1C57FB4F1B04860F0069A1D8 /* sbin */ = {
+			isa = PBXGroup;
+			children = (
+				1C57FB501B04860F0069A1D8 /* 0xdeadfa11 */,
+			);
+			name = sbin;
+			path = Package/usr/sbin;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C57FB371B0485F60069A1D8 /* InjectorForeground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C57FB4C1B0485F60069A1D8 /* Build configuration list for PBXNativeTarget "InjectorForeground" */;
+			buildPhases = (
+				1C57FB341B0485F60069A1D8 /* Sources */,
+				1C57FB351B0485F60069A1D8 /* Frameworks */,
+				1C57FB361B0485F60069A1D8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InjectorForeground;
+			productName = InjectorForeground;
+			productReference = 1C57FB381B0485F60069A1D8 /* InjectorForeground */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C57FB301B0485F60069A1D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					1C57FB371B0485F60069A1D8 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 1C57FB331B0485F60069A1D8 /* Build configuration list for PBXProject "InjectorForeground" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1C57FB2F1B0485F60069A1D8;
+			productRefGroup = 1C57FB391B0485F60069A1D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C57FB371B0485F60069A1D8 /* InjectorForeground */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C57FB361B0485F60069A1D8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C57FB341B0485F60069A1D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C57FB481B0485F60069A1D8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1C57FB4A1B0485F60069A1D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		1C57FB4B1B0485F60069A1D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		1C57FB4D1B0485F60069A1D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InjectorForeground/InjectorForeground-Prefix.pch";
+				INSTALL_PATH = /usr/sbin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		1C57FB4E1B0485F60069A1D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InjectorForeground/InjectorForeground-Prefix.pch";
+				INSTALL_PATH = /usr/sbin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C57FB331B0485F60069A1D8 /* Build configuration list for PBXProject "InjectorForeground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C57FB4A1B0485F60069A1D8 /* Debug */,
+				1C57FB4B1B0485F60069A1D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C57FB4C1B0485F60069A1D8 /* Build configuration list for PBXNativeTarget "InjectorForeground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C57FB4D1B0485F60069A1D8 /* Debug */,
+				1C57FB4E1B0485F60069A1D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C57FB301B0485F60069A1D8 /* Project object */;
+}

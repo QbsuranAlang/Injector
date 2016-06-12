@@ -1,0 +1,62 @@
+﻿//
+//  Native Build System properties for the iPhone Simulator platform
+//  English localization
+//
+//  Copyright (c) 2010-2012 Apple, Inc.  All rights reserved.
+//
+
+"Name" = "Standard Build Settings";
+"Description" = "General";
+
+
+// Deployment Settings
+
+"[Deployment]-category" = "Deployment";
+
+"[IPHONEOS_DEPLOYMENT_TARGET]-name" = "iOS Deployment Target";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description" = "Code will load on this and later versions of iOS.  Framework APIs that are unavailable in earlier versions will be weak-linked; your code should check for null function pointers or specific system versions before calling newer APIs. [IPHONEOS_DEPLOYMENT_TARGET]
+
+iOS 4.3 - Code will not load on systems earlier than 4.3. [4.3]
+iOS 5.0 - Code will not load on systems earlier than 5.0. [5.0]
+iOS 5.1 - Code will not load on systems earlier than 5.1. [5.1]
+iOS 6.0 - Code will not load on systems earlier than 6.0. [6.0]
+
+";
+// fix with radar://7444608
+//__SUPPORTED_IPHONEOS_DEPLOYMENT_TARGET_DESCRIPTIONS__
+
+
+// fix with radar://7444608
+// __SUPPORTED_IPHONEOS_DEPLOYMENT_TARGETS__
+// Supported IPHONEOS_DEPLOYMENT_TARGETs 
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[4.3]" = "iOS 4.3";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[4.3]" = "Code will not load on systems earlier than 4.3. [4.3]";
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[5.0]" = "iOS 5.0";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[5.0]" = "Code will not load on systems earlier than 5.0. [5.0]";
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[5.1]" = "iOS 5.1";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[5.1]" = "Code will not load on systems earlier than 5.1. [5.1]";
+"[IPHONEOS_DEPLOYMENT_TARGET]-value-[6.0]" = "iOS 6.0";
+"[IPHONEOS_DEPLOYMENT_TARGET]-description-[6.0]" = "Code will not load on systems earlier than 6.0. [6.0]";
+
+
+// Build Setting for TARGETED_DEVICE_FAMILY, used to setup the Info.plist's DeviceFamily 
+"[TARGETED_DEVICE_FAMILY]-name" = "Targeted Device Family";
+"[TARGETED_DEVICE_FAMILY]-description" = "Used to tell the build system which Device Family the target is building for. [TARGETED_DEVICE_FAMILY]
+
+iPhone - Application is built for iPhone products.
+iPad - Application is built for iPad products.
+iPhone/iPad - Application is built for both the iPhone and iPad products.
+
+";
+"[TARGETED_DEVICE_FAMILY]-value-[1]" = "iPhone";
+"[TARGETED_DEVICE_FAMILY]-description-[1]" = "The built Application is targeted for the iPhone device family.";
+"[TARGETED_DEVICE_FAMILY]-value-[2]" = "iPad";
+"[TARGETED_DEVICE_FAMILY]-description-[2]" = "The built Application is targeted for the iPad device family.";
+"[TARGETED_DEVICE_FAMILY]-value-[1,2]" = "iPhone/iPad";
+"[TARGETED_DEVICE_FAMILY]-description-[1,2]" = "The built Application is targeted for both the iPhone and iPad device families.";
+
+
+// Build Setting for CopyPNGFile tool
+"[Packaging]-category" = "Packaging";
+"[COMPRESS_PNG_FILES]-name" = "Compress PNG Files";
+"[COMPRESS_PNG_FILES]-description" = "Image files with '.png' extension are compressed as they are copied. [COMPRESS_PNG_FILES]";

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="477"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Injector_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2CJ-Rd-xdN">
+                    <rect key="frame" x="0.0" y="-0.5" width="478" height="478"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="2CJ-Rd-xdN" secondAttribute="height" multiplier="1:1" id="imO-ty-xSt"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.18823529411764706" green="0.63529411764705879" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="2CJ-Rd-xdN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0uv-Zl-VNd"/>
+                <constraint firstAttribute="trailing" secondItem="2CJ-Rd-xdN" secondAttribute="trailing" id="3Vv-sB-EUQ"/>
+                <constraint firstAttribute="centerY" secondItem="2CJ-Rd-xdN" secondAttribute="centerY" id="ke6-JW-Qf6"/>
+                <constraint firstAttribute="centerX" secondItem="2CJ-Rd-xdN" secondAttribute="centerX" id="prg-ZF-wi1"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="547" y="453.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Injector_icon" width="1024" height="1024"/>
+    </resources>
+</document>

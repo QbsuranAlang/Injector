@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<array>
+		<string>Capture all packet</string>
+		<string>ARP only</string>
+		<string>Filter ARP</string>
+		<string>TCP only</string>
+		<string>Filter TCP</string>
+		<string>UDP only</string>
+		<string>Filter UDP</string>
+		<string>ICMP Only</string>
+		<string>Filter ICMP</string>
+		<string>ICMP echo only</string>
+		<string>Filter SSH</string>
+		<string>DNS only</string>
+		<string>IPv6 only</string>
+		<string>Ethernet is broadcast</string>
+		<string>TCP and destination port is 80</string>
+		<string>Packet less than or equal to 75 bytes</string>
+		<string>Packet more than or equal 100 bytes</string>
+		<string>IP address is 192.168.1.14</string>
+		<string>Interest IP address range</string>
+		<string>Interest TCP port range</string>
+		<string>Reject broadcast and multicast</string>
+	</array>
+	<key>pcapFilter</key>
+	<array>
+		<string>all</string>
+		<string>arp</string>
+		<string>not arp</string>
+		<string>tcp</string>
+		<string>not tcp</string>
+		<string>udp</string>
+		<string>not udp</string>
+		<string>icmp</string>
+		<string>not icmp</string>
+		<string>icmp[icmptype]==icmp-echo</string>
+		<string>not tcp port 22</string>
+		<string>port 53</string>
+		<string>ip6</string>
+		<string>ether broadcast</string>
+		<string>tcp dst port 80</string>
+		<string>less 75</string>
+		<string>greater 100</string>
+		<string>host 192.168.1.14</string>
+		<string>net 192.168.4.0/24</string>
+		<string>tcp portrange 0-1023</string>
+		<string>not broadcast and not multicast</string>
+	</array>
+</dict>
+</plist>

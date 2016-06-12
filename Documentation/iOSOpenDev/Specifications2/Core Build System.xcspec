@@ -1,0 +1,28 @@
+/*
+    Core Build System Properties for the iPhone OS platform
+
+    Copyright (c) 1999-2012 Apple Inc.
+    All rights reserved.
+
+    Augments the list of build settings for the core build system with settings specific to the iPhone OS build environment.
+*/
+{
+    Type = BuildSystem;
+    Identifier = com.apple.build-system.core;
+    BasedOn = "com.apple.buildsettings.standard";
+    Name = "Core Build System";
+    IsGlobalDomainInUI = Yes;
+    DeletedProperties = ( PROVISIONING_PROFILE, CODE_SIGN_ENTITLEMENTS );
+    Properties = (
+        
+        // Deployment
+        {   Name = PROJECT_IPHONEOS_DEPLOYMENT_TARGET;
+            Type = Enumeration;
+            Values = ( "4.3", "5.0", "5.1", "6.0" ); // stop hardcoding this with rdar://7444608
+            ConditionFlavors = ( arch, sdk );
+            // Default value is set dynamically
+            Category = Deployment;
+        },            
+
+    );
+}

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'InjectorForeground' target in the 'InjectorForeground' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
