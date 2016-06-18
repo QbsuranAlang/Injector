@@ -222,25 +222,12 @@ sudo ln -fhs $iOSOpenDevPath/bin/ldid `xcode-select -print-path`/Platforms/iPhon
 Revise ```SDKSettings.plist```, under the ```DefaultPropertie``` three key: ```CODE_SIGNING_REQUIRED```, ```ENTITLEMENTS_REQUIRED``` and ```AD_HOC_CODE_SIGNING_ALLOWED```, update to each are ```NO```, ```NO``` and ```YES```。
 
 ```
-ls `xcode-select -print-path`/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/SDKSettings.plist
+ls `xcrun --sdk iphoneos --show-sdk-path`/SDKSettings.plist
 ```
 
 > 需要root權限修改文件，可以先複製到桌面修改完後再複製回去目錄。
 
 > You need root privilege to update file. You can copy it to desktop for revise, after that, copy to original location.
-
-</br>
-因為在Xocde 7.3之後，iOS 9.3 SDK移除了```Private Framework```，所以除了要從之前的SDK複製出要使用的private framework，還要修改組態檔，```MinimumSDKVersion```值改成```9.2```，同上需要root權限。
-
-In Xcode 7.3, the private framework has been removed from iOS 9.3 SDK. If need it, you need to copy needed private framework from previous SDK. After that you need to update configure file. Key, ```MinimumSDKVersion``` update to ```9.2```. Ditto.
-
-```
-ls `xcode-select -print-path`/Platforms/iPhoneOS.platform/Info.plist
-```
-
-> 工具內的```Wi-Fi Scanner```使用了private framework，所以可能未來某一版本的iOS就無法使用了。
-
-> Tool, ```Wi-Fi Scanner``` used private framework, maybe someday iOS version cannot be used anymore.
 
 </br>
 在本文件下的目錄```iOSOpenDev```裡面的```Installer```內有個指令```iod-setup```輔助安裝。
@@ -255,6 +242,10 @@ sudo mkdir -p `xcode-select -print-path`/Platforms/iPhoneOS.platform/Developer/S
 完成後安裝```iOSOpenDev-1.6-2.pkg```。
 
 Install ```iOSOpenDev-1.6-2.pkg``` when finish it.
+
+> 在Xocde 7.3之後，iOS 9.3 SDK移除了```Private Framework```，工具內的```Wi-Fi Scanner```使用了private framework，所以可能未來某一版本的iOS就無法使用了。
+
+> In Xcode 7.3, the private framework has been removed from iOS 9.3 SDK. Tool, ```Wi-Fi Scanner``` used private framework, maybe someday iOS version cannot be used anymore.
 
 </br>
 複製剩下的相依文件。
@@ -283,7 +274,7 @@ If install successfully, when create a new Xcode project, you can see new templa
 copy header route.h.
 
 ```
-sudo cp /usr/include/net/route.h \
+sudo cp `xcode-select -print-path`/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/net/route.h  \
 `xcode-select -print-path`/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/net/route.h
 ```
 
