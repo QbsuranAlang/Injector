@@ -2113,7 +2113,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#Just for compile and run.\nexit\nexport CODESIGN_ALLOCATE=`xcode-select -print-path`/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n`xcode-select -print-path`/iphoneentitlements/gen_entitlements.py \"tw.edu.mcu.cce.nrl.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi\n\n\nif [ -e \"${PROJECT_DIR}/Packages\" ]; then\n    rm -r ${PROJECT_DIR}/Packages\nfi\nif [ -e \"${PROJECT_DIR}/Injector/Package/Applications/Injector.app\" ]; then\nrm -r ${PROJECT_DIR}/Injector/Package/Applications/Injector.app\nfi\n\n#package\n/opt/iOSOpenDev/bin/iosod --xcbp";
+			shellScript = "#Just for compile and run.\nexport CODESIGN_ALLOCATE=`xcode-select -print-path`/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n`xcode-select -print-path`/iphoneentitlements/gen_entitlements.py \"tw.edu.mcu.cce.nrl.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi\n\n\nif [ -e \"${PROJECT_DIR}/Packages\" ]; then\n    rm -r ${PROJECT_DIR}/Packages\nfi\nif [ -e \"${PROJECT_DIR}/Injector/Package/Applications/Injector.app\" ]; then\nrm -r ${PROJECT_DIR}/Injector/Package/Applications/Injector.app\nfi\n\n#package\n/opt/iOSOpenDev/bin/iosod --xcbp";
 		};
 		52473E754206CA014D1F5EE6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2466,7 +2466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2504,7 +2504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
