@@ -321,6 +321,8 @@ BAD:
 
 - (void)analyserIp: (struct libnet_ipv4_hdr *)ip sourceport: (BOOL)sourceport
 {
+#pragma mark
+#if 0
     struct in_addr addr = sourceport ? ip->ip_src : ip->ip_dst;
     NSString *hostname = nil;
     NSString *ipAddress = nil;
@@ -450,6 +452,7 @@ BAD:
         }//end
         
     }
+#endif
 }
 
 id plistObject(NSString *key, int index)

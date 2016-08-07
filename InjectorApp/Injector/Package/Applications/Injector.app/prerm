@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #daemon
-launchctl unload /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+#launchctl unload /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+killall InjectorDaemon
 
 #uploader
 launchctl unload /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist

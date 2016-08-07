@@ -10,12 +10,16 @@
 #import <curl/curl.h>
 #import <sys/types.h>
 #import <sys/stat.h>
+#import <spawn.h>
+extern char **environ;
 #define DATABASEURL "https://nrl.cce.mcu.edu.tw/injector/dbAccess/Database"
 #define DATABASE_FILE "/var/root/Injector/MaliceDatabase"
 @interface IJTDatabase ()
 
+/*
 @property (nonatomic) CURL *curlhandle;
 @property (nonatomic) FILE *databasefile;
+*/
 
 @end
 
@@ -31,7 +35,7 @@
                                        selector:@selector(retrieve)
                                        userInfo:nil
                                         repeats:YES];
-        
+        /*
         if(curl_global_init(CURL_GLOBAL_SSL) != CURLE_OK)
             goto BAD;
         
@@ -63,6 +67,7 @@
         curl_easy_setopt(self.curlhandle, CURLOPT_WRITEFUNCTION, writeCallback);
         
         self.databasefile = NULL;
+         */
     }
     
 BAD:
@@ -77,6 +82,7 @@ BAD:
     if (stat("/var/root/Injector/", &st) == -1) {
         mkdir("/var/root/Injector/", 0755);
     }
+    /*
     self.databasefile = fopen(DATABASE_FILE, "w+");
     if(!self.databasefile) {
         printf("fail to update database\n");
@@ -85,15 +91,34 @@ BAD:
     curl_easy_perform(self.curlhandle);
     fflush(self.databasefile);
     fclose(self.databasefile);
+     */
+#if 0
+    remove(DATABASE_FILE);
+    
+    pid_t pid;
+    char *argv[] = {
+        "/usr/bin/curl",
+        "-o",
+        DATABASE_FILE,
+        "-k",
+        DATABASEURL,
+        NULL
+    };
+    
+    posix_spawn(&pid, argv[0], NULL, NULL, argv, environ);
+    waitpid(pid, NULL, 0);
+
     printf("update successfully\n");
+#endif
 }
 
+/*
 static size_t writeCallback(char *ptr, size_t size, size_t nmemb, void *userdata)
 {
     FILE *fp = *(FILE **)userdata;
     fprintf(fp, "%s", ptr);
     return nmemb;
-}
+}*/
 
 + (NSArray *) getdatabase
 {

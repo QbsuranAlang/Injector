@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Lc-NJ-6qQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Lc-NJ-6qQ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -250,12 +250,38 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AllTheTimeCell" rowHeight="55" id="n0K-G4-egr" userLabel="FlushCell">
+                                        <rect key="frame" x="0.0" y="599.5" width="600" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n0K-G4-egr" id="65Z-Qb-Gq3">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luh-CI-4ua" customClass="FUIButton">
+                                                    <rect key="frame" x="8" y="8" width="584" height="38.5"/>
+                                                    <state key="normal" title="Flush Flow">
+                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="flushFlowData:" destination="mGe-IS-FdY" eventType="touchUpInside" id="Vsb-31-sID"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Luh-CI-4ua" secondAttribute="trailing" id="Uz6-pZ-9nG"/>
+                                                <constraint firstItem="Luh-CI-4ua" firstAttribute="top" secondItem="65Z-Qb-Gq3" secondAttribute="topMargin" id="lMV-fp-7lh"/>
+                                                <constraint firstItem="Luh-CI-4ua" firstAttribute="bottom" secondItem="65Z-Qb-Gq3" secondAttribute="bottomMargin" id="ntV-Pi-OZQ"/>
+                                                <constraint firstItem="Luh-CI-4ua" firstAttribute="leading" secondItem="65Z-Qb-Gq3" secondAttribute="leadingMargin" id="wGE-QL-Kxz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Detect Event" id="LBm-It-7bQ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="44" id="293-QJ-KFF">
-                                        <rect key="frame" x="0.0" y="641.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="696.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="293-QJ-KFF" id="t4p-CS-NVp">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -298,7 +324,7 @@
                             <tableViewSection headerTitle="Wi-Fi Detail" id="gnL-Ev-sDV">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ByteCell" rowHeight="44" id="zF1-xF-gga">
-                                        <rect key="frame" x="0.0" y="727.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="782.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zF1-xF-gga" id="Qmc-ch-O4D">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -337,7 +363,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CountCell" rowHeight="44" id="j3S-Dl-JN3">
-                                        <rect key="frame" x="0.0" y="771.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="826.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j3S-Dl-JN3" id="BRw-ah-PEP">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -376,7 +402,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PacketAverageCell" rowHeight="44" id="Cva-5B-z86">
-                                        <rect key="frame" x="0.0" y="815.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="870.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cva-5B-z86" id="QsR-Fh-Sei">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -415,7 +441,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BytesFlowCell" rowHeight="44" id="hl9-SR-AHM">
-                                        <rect key="frame" x="0.0" y="859.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="914.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hl9-SR-AHM" id="I3l-oM-gYz">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -454,7 +480,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CountFlowCell" rowHeight="44" id="rdD-dI-shV">
-                                        <rect key="frame" x="0.0" y="903.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="958.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdD-dI-shV" id="6sF-VM-fxs">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -497,7 +523,7 @@
                             <tableViewSection headerTitle="Cellular Detail" id="p1G-Ta-BzY">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ByteCell" rowHeight="44" id="bsT-xD-LLc">
-                                        <rect key="frame" x="0.0" y="989.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="1044.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsT-xD-LLc" id="iqp-el-RYb">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -540,7 +566,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CountCell" rowHeight="44" id="utD-Co-cuv">
-                                        <rect key="frame" x="0.0" y="1033.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="1088.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="utD-Co-cuv" id="LI2-lH-eyG">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -579,7 +605,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PacketAverageCell" rowHeight="44" id="b0i-oL-LdP">
-                                        <rect key="frame" x="0.0" y="1077.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="1132.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b0i-oL-LdP" id="vgz-S6-W58">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -618,7 +644,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BytesFlowCell" rowHeight="44" id="IKG-z7-ULu">
-                                        <rect key="frame" x="0.0" y="1121.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="1176.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IKG-z7-ULu" id="2yY-lQ-X4g">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -657,7 +683,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CountFlowCell" rowHeight="44" id="H76-xu-ymu">
-                                        <rect key="frame" x="0.0" y="1165.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="1220.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H76-xu-ymu" id="23N-o8-oZF">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -700,7 +726,7 @@
                             <tableViewSection headerTitle="Wi-Fi Packet Type" id="i8b-ZE-5Yo">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PacketCell" rowHeight="200" id="TfU-eD-hpc">
-                                        <rect key="frame" x="0.0" y="1251.5" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="1306.5" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TfU-eD-hpc" id="28e-Lg-r1f">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
@@ -765,7 +791,7 @@
                             <tableViewSection headerTitle="Cellular Packet Type" id="824-hg-T37">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PacketCell" rowHeight="200" id="1gT-TB-fQU">
-                                        <rect key="frame" x="0.0" y="1493.5" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="1548.5" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1gT-TB-fQU" id="EbO-GD-wlE">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
@@ -906,7 +932,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IV6-Kt-Esc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="-2556"/>
+            <point key="canvasLocation" x="933" y="-2556"/>
         </scene>
         <!--Detect Event Table View Controller-->
         <scene sceneID="pc1-Zu-7kw">

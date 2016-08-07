@@ -9,6 +9,8 @@
 #import "IJTFlowTableViewController.h"
 #import "IJTSnifferTableViewController.h"
 #import "IJTDetectEventTableViewController.h"
+#import <spawn.h>
+extern char **environ;
 #define TIME_OFFSET 3600*24
 
 @interface IJTFlowTableViewController ()
@@ -429,7 +431,7 @@
     if(![IJTNetowrkStatus supportWifi] && ![IJTNetowrkStatus supportCellular]) {
         if(section == 2 || section == 4 || section == 3 || section == 5) {
             switch (section) {
-                case 0: return 7;
+                case 0: return 8;
                 case 1: return 1;
                 case 2: return 0;
                 case 3: return 0;
@@ -442,7 +444,7 @@
     if(![IJTNetowrkStatus supportWifi]) {
         if(section == 2 || section == 4) {
             switch (section) {
-                case 0: return 7;
+                case 0: return 8;
                 case 1: return 1;
                 case 2: return 0;
                 case 3: return 5;
@@ -455,7 +457,7 @@
     if(![IJTNetowrkStatus supportCellular]) {
         if(section == 3 || section == 5) {
             switch (section) {
-                case 0: return 7;
+                case 0: return 8;
                 case 1: return 1;
                 case 2: return 5;
                 case 3: return 0;
@@ -466,7 +468,7 @@
         }
     }
     switch (section) {
-        case 0: return 7;
+        case 0: return 8;
         case 1: return 1;
         case 2: return 5;
         case 3: return 5;
@@ -885,6 +887,42 @@ static NSInteger selectedIndex = 0;
             }];
         }];
     }];
+}
+
+- (IBAction)flushFlowData:(id)sender {
+    SCLAlertView *alert = [IJTShowMessage baseAlertView];
+    
+    [alert addButton:@"Yes" actionBlock:^{
+        [IJTDispatch dispatch_main_after:DISPATCH_DELAY_TIME block:^{
+            [KVNProgress showWithStatus:@"Wait for flushing out data..."];
+            
+            [IJTDispatch dispatch_main_after:DISPATCH_DELAY_TIME block:^{
+                
+                pid_t pid;
+                char *argv[] = {
+                    "/Applications/Injector.app/InjectorUploader",
+                    "skip",
+                    "force",
+                    NULL
+                };
+                
+                posix_spawn(&pid, argv[0], NULL, NULL, argv, environ);
+                waitpid(pid, NULL, 0);
+                
+                [IJTDispatch dispatch_main:^{
+                    [KVNProgress dismiss];
+                    [self showSuccessMessage:@"Success"];
+                }];
+            }];
+            
+            
+        }];
+    }];
+    
+    [alert showInfo:@"Flush"
+           subTitle:@"Do you want to flush your flow data right now?\nIt may take a while."
+   closeButtonTitle:@"No"
+           duration:0];
 }
 
 #pragma mark Collection View

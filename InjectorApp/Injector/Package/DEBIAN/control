@@ -1,9 +1,9 @@
 Package: tw.edu.mcu.cce.nrl.Injector
 Name: Injector
-Version: 2.5
+Version: 2.5.1
 Description: The project let you easily browse your network flow and using some network tools with UI. https://nrl.cce.mcu.edu.tw/injector
 Section: Networking
-Depends: firmware (>= 5.0), mobilesubstrate, preferenceloader
+Depends: firmware (>= 5.0), mobilesubstrate, preferenceloader, Screen
 Conflicts: 
 Replaces: Injector
 Priority: optional

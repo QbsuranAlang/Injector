@@ -26,12 +26,23 @@ int main (int argc, const char * argv[])
 {
 
     @autoreleasepool
-    {	
+    {
+#if 1
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setObject:@"ForDebug" forKey:@"Bundle ID"];
+        [dict setObject:@"ForDebug" forKey:@"Process Name"];
+        [dict setObject:@"ForDebug" forKey:@"Display Name"];
+        [dict setObject:NO ? @"t" : @"f" forKey:@"Screen Lock"];
+        NSString *jsonStr = dictionary2sting(dict, NO);
+        fprintf(stdout, "%s", [jsonStr UTF8String]);
+        return 0;
+#else
+        
         void * uikit = dlopen("/System/Library/Framework/UIKit.framework/UIKit", RTLD_LAZY);
+        
         mach_port_t (*SBSSpringBoardServerPort)() =
         dlsym(uikit, "SBSSpringBoardServerPort");
         mach_port_t *p = SBSSpringBoardServerPort();
-        
         dlclose(uikit);
         void *sbserv = dlopen("/System/Library/PrivateFrameworks/SpringBoardServices.framework/SpringBoardServices", RTLD_LAZY);
         
@@ -127,6 +138,7 @@ int main (int argc, const char * argv[])
         jsonStr = dictionary2sting(dict, NO);
         fprintf(stdout, "%s", [jsonStr UTF8String]);
         return 1;
+#endif
     }//end auto release pool
     
 }

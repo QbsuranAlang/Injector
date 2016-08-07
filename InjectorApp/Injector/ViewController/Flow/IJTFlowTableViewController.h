@@ -32,8 +32,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *wifiPacketCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *cellPacketCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *detectTimesLabel;
+
 - (IBAction)resetDate:(id)sender;
 - (IBAction)setAllTheDate:(id)sender;
+- (IBAction)flushFlowData:(id)sender;
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 

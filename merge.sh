@@ -2,7 +2,7 @@
 
 REPOROOT=$(pwd)
 
-vAPP=2.5
+vAPP=2.5.1
 vDaemon=1.0-1
 vPreferenceLoader=1.0-1
 vForeground=1.0-1

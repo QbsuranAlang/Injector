@@ -16,20 +16,6 @@
 		</dict>
 		<dict>
 			<key>get</key>
-			<string>getShowNotificationValue:</string>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<true/>
-			<key>key</key>
-			<string>SwitchShowNotification</string>
-			<key>label</key>
-			<string>Show Notification</string>
-			<key>defaults</key>
-			<string>tw.edu.mcu.cce.nrl.InjectorPreferenceLoader</string>
-		</dict>
-		<dict>
-			<key>get</key>
 			<string>getViaWiFiValue:</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
