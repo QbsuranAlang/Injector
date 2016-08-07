@@ -176,6 +176,58 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.section == 3) {
+        
+        //add storyboards
+        NSArray *toolSection = [IJTBaseViewController getAllToolSectionArray];
+        NSMutableArray *storyboardArray = [[NSMutableArray alloc] init];
+        for(NSString *section in toolSection) {
+            [storyboardArray addObject:[UIStoryboard storyboardWithName:[section stringByAppendingString:@"Storyboard"] bundle:nil]];
+        }//end for
+        
+        NSString *vcid = [NSString stringWithFormat:@"%@NavVC", _toolArray[indexPath.row]];
+        UINavigationController *navVC = nil;
+        UIStoryboard *storyboard = nil;
+        
+        //search view controller
+        for(UIStoryboard *sub_storyboard in storyboardArray) {
+            
+            //because if stroyboard not contain my view controller id, it will throw NSInvalidArgumentException
+            @try {
+                navVC = [sub_storyboard instantiateViewControllerWithIdentifier:vcid];
+                storyboard = sub_storyboard;
+            }
+            @catch(NSException *ex) {
+            }
+            
+            if(navVC && storyboard) {
+                break;
+            }//end if
+        }//end for
+        
+        //not found, skip
+        if(!navVC || !storyboard) {
+            SCLAlertView *alert = [IJTShowMessage baseAlertView];
+            [alert showError:@"Error"
+                    subTitle:
+             [NSString stringWithFormat:@"Can't not found: \"%@\", should not be happened.", _toolArray[indexPath.row]]
+            closeButtonTitle:@"OK"
+                    duration:0];
+            return;
+        }//end if
+        
+        IJTBaseViewController *vc = [[navVC viewControllers] firstObject];
+        vc.fromLAN = YES;
+        vc.popButton = [[UIBarButtonItem alloc]
+                        initWithImage:[UIImage imageNamed:@"left.png"]
+                        style:UIBarButtonItemStylePlain
+                        target:self action:@selector(dismissVC)];
+        vc.ipAddressFromLan = [_dict valueForKey:@"IpAddress"];
+        vc.macAddressFromLan = [_dict valueForKey:@"MacAddress"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
+        return;
+#if 0
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ToolKitStoryboard" bundle:nil];
         NSString *vcid = [NSString stringWithFormat:@"%@NavVC", _toolArray[indexPath.row]];
         UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:vcid];
@@ -188,6 +240,7 @@
         vc.ipAddressFromLan = [_dict valueForKey:@"IpAddress"];
         vc.macAddressFromLan = [_dict valueForKey:@"MacAddress"];
         [self.navigationController pushViewController:vc animated:YES];
+#endif
     }
 }
 
