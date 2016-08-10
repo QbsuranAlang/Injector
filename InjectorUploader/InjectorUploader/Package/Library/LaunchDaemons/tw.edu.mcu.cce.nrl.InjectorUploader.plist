@@ -2,10 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/screen</string>
+		<string>-d</string>
+		<string>-m</string>
+		<string>/Applications/Injector.app/InjectorUploader</string>
+	</array>
 	<key>Label</key>
 	<string>tw.edu.mcu.cce.nrl.InjectorUploader</string>
 	<key>Program</key>
-	<string>/Applications/Injector.app/InjectorUploader</string>
+	<string>/usr/bin/screen</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>UserName</key>
