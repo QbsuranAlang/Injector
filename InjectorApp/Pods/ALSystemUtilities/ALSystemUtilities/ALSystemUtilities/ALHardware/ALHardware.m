@@ -97,6 +97,13 @@
         [result isEqualToString:@"iPhone5,4"])      type = @"iPhone 5c";
     if ([result isEqualToString:@"iPhone7,2"])      type = @"iPhone 6";
     if ([result isEqualToString:@"iPhone7,1"])      type = @"iPhone 6 Plus";
+    if ([result isEqualToString:@"iPhone8,1"])    return @"iPhone 6s";
+    if ([result isEqualToString:@"iPhone8,2"])    return @"iPhone 6s Plus";
+    if ([result isEqualToString:@"iPhone8,4"])    return @"iPhone SE";
+    if ([result isEqualToString:@"iPhone9,1"] ||
+        [result isEqualToString:@"iPhone9,3"])    return @"iPhone 7";
+    if ([result isEqualToString:@"iPhone9,2"] ||
+        [result isEqualToString:@"iPhone9,4"])    return @"iPhone 7 Plus";
     
     if (!type) {
         NSInteger index = MAX([result rangeOfString:@"iPhone"].length, [result rangeOfString:@"iPad"].length);

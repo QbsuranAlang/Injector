@@ -10,26 +10,31 @@
 #import "IJTDispatch.h"
 #define BASEURL @"https://nrl.cce.mcu.edu.tw/injector/dbAccess/"
 
-/*
 @implementation NSURLRequest (NSURLRequestWithIgnoreSSL)
 
 + (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host {
     return YES;
 }
 
-@end*/
+@end
+
+@interface NSURLRequest (DummyInterface)
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString*)host;
++ (void)setAllowsAnyHTTPSCertificate:(BOOL)allow forHost:(NSString*)host;
+@end
 
 @implementation IJTHTTP
 
 + (void)retrieveFrom: (NSString *)path post:(NSString *)post timeout: (NSTimeInterval)timeout block:(void (^)(NSData *data))block
 {
+    [NSURLRequest allowsAnyHTTPSCertificateForHost: path]; //可以使用https網站
+    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:path];
     path = [NSString stringWithFormat:@"%@%@", BASEURL, path];
     NSURL *url = [NSURL URLWithString: path];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:url cachePolicy:
                                     NSURLRequestUseProtocolCachePolicy
                                     timeoutInterval:3];
-    //[NSURLRequest allowsAnyHTTPSCertificateForHost: path]; //可以使用https網站
     [request setHTTPMethod:@"POST"];
     [request setTimeoutInterval:timeout];
     
@@ -53,13 +58,15 @@
 }
 
 + (void)retrieveFrom: (NSString *)path postDict:(NSDictionary *)postDict timeout: (NSTimeInterval)timeout block:(void (^)(NSData *data))block {
+    [NSURLRequest allowsAnyHTTPSCertificateForHost: path]; //可以使用https網站
+    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:path];
+    
     path = [NSString stringWithFormat:@"%@%@", BASEURL, path];
     NSURL *url = [NSURL URLWithString: path];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:url cachePolicy:
                                     NSURLRequestUseProtocolCachePolicy
                                     timeoutInterval:3];
-    //[NSURLRequest allowsAnyHTTPSCertificateForHost: path]; //可以使用https網站
     [request setHTTPMethod:@"POST"];
     [request setTimeoutInterval:timeout];
     
@@ -108,12 +115,13 @@
 
 + (void)getFrom: (NSString *)path timeout: (NSTimeInterval)timeout block:(void (^)(NSData *data))block
 {
+    [NSURLRequest allowsAnyHTTPSCertificateForHost: path];
+    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:path]; //可以使用https網站
     NSURL *url = [NSURL URLWithString: path];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:url cachePolicy:
                                     NSURLRequestUseProtocolCachePolicy
                                     timeoutInterval:3];
-    //[NSURLRequest allowsAnyHTTPSCertificateForHost: path]; //可以使用https網站
     [request setTimeoutInterval:timeout];
     
     //設定参数

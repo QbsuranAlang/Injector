@@ -10,6 +10,7 @@
 #import <sys/types.h>
 #import <sys/stat.h>
 #import "IJTBaseViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -160,6 +161,9 @@ static void handleUncaughtException(NSException *exception) {
                       }];
     }];
     
+    //load manually
+    [IJTCommand restartInjectorDaemon];
+    
     return YES;
 }
 
@@ -214,4 +218,10 @@ static void handleUncaughtException(NSException *exception) {
     // Saves changes in the application's managed object context before the application terminates.
 }
 
+@end
+@implementation NSURLRequest(DataController)
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
+{
+    return YES;
+}
 @end

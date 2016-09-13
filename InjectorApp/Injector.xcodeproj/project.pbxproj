@@ -309,6 +309,7 @@
 		1CFFF04D1B887418000CA117 /* IJTWOLSentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFFF04C1B887418000CA117 /* IJTWOLSentTableViewCell.m */; };
 		ACB696001B0FF29EF62CFD37 /* libPods-Injector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40179C17A0062BCBF3A471BE /* libPods-Injector.a */; };
 		D795BA5F1D08398E00826309 /* MobileWiFi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D795BA5E1D08398E00826309 /* MobileWiFi.framework */; };
+		D7C1AC601D6F189F002BCD85 /* IJTCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C1AC5F1D6F189F002BCD85 /* IJTCommand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -879,6 +880,8 @@
 		A93CF9BBEE0F24D499C9217B /* Pods-Injector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Injector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Injector/Pods-Injector.debug.xcconfig"; sourceTree = "<group>"; };
 		BD35CFC1B620EF56D001387C /* Pods-Injector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Injector.release.xcconfig"; path = "Pods/Target Support Files/Pods-Injector/Pods-Injector.release.xcconfig"; sourceTree = "<group>"; };
 		D795BA5E1D08398E00826309 /* MobileWiFi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileWiFi.framework; path = PrivateFrameworks/MobileWiFi.framework; sourceTree = "<group>"; };
+		D7C1AC5E1D6F189F002BCD85 /* IJTCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTCommand.h; sourceTree = "<group>"; };
+		D7C1AC5F1D6F189F002BCD85 /* IJTCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1121,6 +1124,8 @@
 				1C75EC1B1B999925008B63D8 /* IJTUIImage.m */,
 				1CD7F7EF1BEB85A800D5A03F /* IJTOpenSSL.h */,
 				1CD7F7F01BEB85A800D5A03F /* IJTOpenSSL.m */,
+				D7C1AC5E1D6F189F002BCD85 /* IJTCommand.h */,
+				D7C1AC5F1D6F189F002BCD85 /* IJTCommand.m */,
 			);
 			path = Injector;
 			sourceTree = "<group>";
@@ -2345,6 +2350,7 @@
 				1CA1E9EE1B4E9B3700266215 /* IJTToolPickerCollectionViewCell.m in Sources */,
 				1CFCF4C81B8002F300FA03E6 /* IJTMDNSResultTableViewController.m in Sources */,
 				1C57B4CA1C25E8B1001A9B5E /* IJTHeartbleedVulnerableTableViewCell.m in Sources */,
+				D7C1AC601D6F189F002BCD85 /* IJTCommand.m in Sources */,
 				1C46BDE31B568839005A9BF1 /* IJTReviseInterfaceTableViewController.m in Sources */,
 				1CFCF4C51B7FF1E500FA03E6 /* IJTMDNSTableViewController.m in Sources */,
 				1CB8CEE11C118E8E008BB96A /* IJTDNSpoofResultTableViewController.m in Sources */,

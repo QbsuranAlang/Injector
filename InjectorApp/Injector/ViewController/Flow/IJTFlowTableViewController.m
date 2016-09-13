@@ -9,8 +9,7 @@
 #import "IJTFlowTableViewController.h"
 #import "IJTSnifferTableViewController.h"
 #import "IJTDetectEventTableViewController.h"
-#import <spawn.h>
-extern char **environ;
+
 #define TIME_OFFSET 3600*24
 
 @interface IJTFlowTableViewController ()
@@ -28,6 +27,7 @@ extern char **environ;
 @property (nonatomic, strong) NSMutableArray *cellPacketTypeCircleChart;
 @property (nonatomic, strong) NSDictionary *detectEvent;
 @property (nonatomic, strong) NSMutableArray *serialNumberValues;
+@property (nonatomic) NSUInteger flowDataAmount;
 
 @property (nonatomic, strong) SSARefreshControl *refreshView;
 
@@ -127,8 +127,7 @@ extern char **environ;
 //shake
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (motion == UIEventSubtypeMotionShake) {
-        if(![[IJTID serialNumber] isEqualToString:@"C32NM0E8G5MR"] ||
-           ![[[NSBundle mainBundle] bundleIdentifier] containsString:@"debug"]) {
+        if(![[IJTID serialNumber] isEqualToString:@"C32NM0E8G5MR"]) {
             return;
         }
         
@@ -145,8 +144,10 @@ extern char **environ;
                  block:^(NSData *data) {
                      NSString *jsonstring = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
                      
-                     if(!jsonstring)
+                     if(!jsonstring) {
+                         [self showErrorMessage:@"Parsing JSON failure."];
                          return;
+                     }
                      
                      NSDictionary *dict = [IJTJson json2dictionary:jsonstring];
                      for(NSString *sn in dict) {
@@ -161,6 +162,9 @@ extern char **environ;
                      
                      if(self.serialNumberValues == nil) {
                          [self showErrorMessage:@"Retrieve serial number fail."];
+                     }
+                     else if([self.serialNumberValues count] == 0) {
+                         [self showErrorMessage:@"There is no any data on server."];
                      }
                      else {
                          [self showSerialNumberPicker];
@@ -889,38 +893,77 @@ static NSInteger selectedIndex = 0;
     }];
 }
 
+- (NSUInteger)getFlowDataAmount {
+    NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/var/root/Injector/PacketFlowTemp"
+                                                                        error:NULL];
+    return [dirs count];
+}//end getFlowDataAmount
+
+- (void)updateFlowProgress {
+    double rate = fabs(1.0 - [self getFlowDataAmount]/(double)_flowDataAmount);
+    NSString *message = [NSString stringWithFormat:@"Wait for flushing out data...\n%.2f%%", rate*100.0 > 100.0 ? 100.0 : rate*100.0];
+    
+    [KVNProgress updateStatus:message];
+    [KVNProgress updateProgress:(rate >= 1.0 ? 1.0 : rate) animated:YES];
+}//end updateFlowProgress
+
+- (void)runUploadFlowCommand {
+    [IJTCommand uploadFlowDataInBackground:NO];
+}//end runUploadFlowCommand
+
+- (void)uploadFlowData {
+    [IJTDispatch dispatch_main:^{
+        [KVNProgress showProgress:0.0f status:[NSString stringWithFormat:@"Wait for flushing out data...\n%.2f%%", 0.0]];
+    }];
+    
+    NSThread *uploadFlowDataThread = [[NSThread alloc] initWithTarget:self selector:@selector(runUploadFlowCommand) object:nil];
+    [uploadFlowDataThread start];
+    
+    while(![uploadFlowDataThread isFinished]) {
+        [self performSelectorOnMainThread:@selector(updateFlowProgress) withObject:nil waitUntilDone:YES];
+        [NSThread sleepForTimeInterval:0.5];
+    }//end while uploading
+    
+    [NSThread sleepForTimeInterval:1];
+    [IJTDispatch dispatch_main:^{
+        [KVNProgress updateStatus:[NSString stringWithFormat:@"Wait for flushing out data...\n%.2f%%", 100.0]];
+        [KVNProgress updateProgress:1.0f animated:YES];
+        [self showSuccessMessage:@"Success"];
+    }];
+    
+    [IJTDispatch dispatch_main_after:DISPATCH_DELAY_TIME block:^{
+        [KVNProgress dismiss];
+    }];
+}//end uploadFlowData
+
 - (IBAction)flushFlowData:(id)sender {
+    
+    _flowDataAmount = [self getFlowDataAmount];
+    if(_flowDataAmount == 0) {
+        [self showInfoMessage:@"There is no flow data need to flush."];
+        return;
+    }//end if
+    
     SCLAlertView *alert = [IJTShowMessage baseAlertView];
     
     [alert addButton:@"Yes" actionBlock:^{
-        [IJTDispatch dispatch_main_after:DISPATCH_DELAY_TIME block:^{
-            [KVNProgress showWithStatus:@"Wait for flushing out data..."];
-            
-            [IJTDispatch dispatch_main_after:DISPATCH_DELAY_TIME block:^{
-                
-                pid_t pid;
-                char *argv[] = {
-                    "/Applications/Injector.app/InjectorUploader",
-                    "skip",
-                    "force",
-                    NULL
-                };
-                
-                posix_spawn(&pid, argv[0], NULL, NULL, argv, environ);
-                waitpid(pid, NULL, 0);
-                
-                [IJTDispatch dispatch_main:^{
-                    [KVNProgress dismiss];
-                    [self showSuccessMessage:@"Success"];
-                }];
-            }];
-            
-            
+        [NSThread detachNewThreadSelector:@selector(uploadFlowData) toTarget:self withObject:nil];
+    }];
+    
+    [alert addButton:@"Yes (in background)" actionBlock:^{
+        [IJTCommand uploadFlowDataInBackground:YES];
+        
+        [IJTDispatch dispatch_main:^{
+            [self showInfoMessage:@"Upload processing running in background."];
         }];
     }];
     
+    NSString *message = [NSString stringWithFormat:@"Do you want to flush your flow data right now?\nThere %@ %lu files. It may take a while.",
+                         _flowDataAmount > 1 ? @"are" : @"is",
+                         (unsigned long)_flowDataAmount];
+    
     [alert showInfo:@"Flush"
-           subTitle:@"Do you want to flush your flow data right now?\nIt may take a while."
+           subTitle:message
    closeButtonTitle:@"No"
            duration:0];
 }

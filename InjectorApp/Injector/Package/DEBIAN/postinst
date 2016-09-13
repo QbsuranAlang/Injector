@@ -7,14 +7,20 @@ chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
 chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
 chown root:wheel /Applications/Injector.app/InjectorDaemon
 
-launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+killall InjectorDaemon 2>/dev/null
+launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist 2>/dev/null
+
+#kill daemon
+chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist
+chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist
 
 #uploader
 chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
 chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
 chown root:wheel /Applications/Injector.app/InjectorUploader
 
-launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
+killall InjectorUploader 2>/dev/null
+launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist 2>/dev/null
 
 #app
 cd "/Applications/Injector.app/"

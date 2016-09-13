@@ -68,19 +68,14 @@ int main (int argc, const char * argv[])
         if(!(argc >= 2 && !strcmp(argv[1], "skip")))
             sleep(10);
         
-        struct stat st = {0};
-        //create dir
-        if (stat("/var/root/Injector/", &st) == -1) {
-            mkdir("/var/root/Injector/", 0755);
-        }
-        if (stat("/var/root/Injector/PacketFlowTemp", &st) == -1) {
-            mkdir("/var/root/Injector/PacketFlowTemp", 0755);
-        }
-        
         IJTDatabase *database = [[IJTDatabase alloc] init];
         if(!(argc >= 3 && !strcmp(argv[2], "dont"))) {
             [database retrieve];
         }
+        
+        mkdir("/var/root/Injector/", 0755);
+        mkdir("/var/root/Injector/PacketFlowTemp", 0755);
+        
         IJTFirewall *fw = [[IJTFirewall alloc] init];
         [fw enableFirewall];
         [fw clearFirewall];

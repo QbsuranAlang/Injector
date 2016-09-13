@@ -81,6 +81,7 @@
 		1CECD6081B296C0B00920380 /* in_systm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = in_systm.h; sourceTree = "<group>"; };
 		1CECD6091B296C0B00920380 /* ip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ip.h; sourceTree = "<group>"; };
 		1CECD60A1B296C0B00920380 /* ip_icmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ip_icmp.h; sourceTree = "<group>"; };
+		D706FAA91D887983003D01C3 /* tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +151,7 @@
 		1C96B4FD1AE10D4A0085AF30 /* LaunchDaemons */ = {
 			isa = PBXGroup;
 			children = (
+				D706FAA91D887983003D01C3 /* tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist */,
 				1C96B4FE1AE10D4A0085AF30 /* tw.edu.mcu.cce.nrl.InjectorDaemon.plist */,
 			);
 			path = LaunchDaemons;

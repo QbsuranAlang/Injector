@@ -2,7 +2,7 @@
 
 REPOROOT=$(pwd)
 
-vAPP=2.5.1
+vAPP=2.5.2
 vDaemon=1.0-1
 vPreferenceLoader=1.0-1
 vForeground=1.0-1
@@ -58,6 +58,7 @@ mv preference/var/mobile/Library/Preferences/tw.edu.mcu.cce.nrl.InjectorPreferen
 mv foreground/usr/sbin/InjectorForeground app/Applications/Injector.app/InjectorForeground
 #move daemon
 mv daemon/Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist app/Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+mv daemon/Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist app/Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist
 mv daemon/usr/sbin/InjectorDaemon app/Applications/Injector.app/InjectorDaemon
 #move uploader
 mv uploader/Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist app/Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist

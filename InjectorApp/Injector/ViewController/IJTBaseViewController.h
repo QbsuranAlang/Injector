@@ -16,6 +16,7 @@
 #import "IJTColor.h"
 #import "IJTStatus.h"
 #import "IJTOpenSSL.h"
+#import "IJTCommand.h"
 #import "IJTUIImage.h"
 #import "IJTDispatch.h"
 #import "IJTGradient.h"
