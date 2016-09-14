@@ -7,8 +7,10 @@
 //
 
 #import "IJTCommand.h"
-
+#import "IJTDispatch.h"
 #import <spawn.h>
+#import <Reachability.h>
+#import "IJTPreference.h"
 extern char **environ;
 @implementation IJTCommand : NSObject
 
@@ -62,6 +64,7 @@ extern char **environ;
     
     //start daemon
     parameters = @[@"/bin/launchctl", @"load", @"/Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist"];
+    sleep(1);
     [IJTCommand runCommandWithArgument:parameters];
 }//end restartInjectorDaemon
 

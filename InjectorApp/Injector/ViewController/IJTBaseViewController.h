@@ -22,6 +22,7 @@
 #import "IJTGradient.h"
 #import "IJTDatabase.h"
 #import "IJTTextField.h"
+#import "IJTPreference.h"
 #import "IJTPickerView.h"
 #import "IJTShowMessage.h"
 #import "IJTPacketQueue.h"

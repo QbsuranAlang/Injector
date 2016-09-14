@@ -944,6 +944,14 @@ static NSInteger selectedIndex = 0;
         return;
     }//end if
     
+    if([IJTPreference viaWiFi] &&
+       [Reachability reachabilityForLocalWiFi].currentReachabilityStatus == NotReachable) {
+        [IJTDispatch dispatch_main:^{
+            [self showErrorMessage:@"Upload flow via Wi-Fi only is enabled."];
+        }];
+        return;
+    }//end if via wifi is enabled
+    
     SCLAlertView *alert = [IJTShowMessage baseAlertView];
     
     [alert addButton:@"Yes" actionBlock:^{
@@ -952,7 +960,6 @@ static NSInteger selectedIndex = 0;
     
     [alert addButton:@"Yes (in background)" actionBlock:^{
         [IJTCommand uploadFlowDataInBackground:YES];
-        
         [IJTDispatch dispatch_main:^{
             [self showInfoMessage:@"Upload processing running in background."];
         }];

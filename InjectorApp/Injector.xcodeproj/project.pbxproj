@@ -308,6 +308,7 @@
 		1CFFF04A1B886F73000CA117 /* IJTWOLWANTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFFF0491B886F73000CA117 /* IJTWOLWANTaskTableViewCell.m */; };
 		1CFFF04D1B887418000CA117 /* IJTWOLSentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFFF04C1B887418000CA117 /* IJTWOLSentTableViewCell.m */; };
 		ACB696001B0FF29EF62CFD37 /* libPods-Injector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40179C17A0062BCBF3A471BE /* libPods-Injector.a */; };
+		D78F8FC71D8966AE00A872C2 /* IJTPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = D78F8FC61D8966AE00A872C2 /* IJTPreference.m */; };
 		D795BA5F1D08398E00826309 /* MobileWiFi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D795BA5E1D08398E00826309 /* MobileWiFi.framework */; };
 		D7C1AC601D6F189F002BCD85 /* IJTCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C1AC5F1D6F189F002BCD85 /* IJTCommand.m */; };
 /* End PBXBuildFile section */
@@ -879,6 +880,8 @@
 		40179C17A0062BCBF3A471BE /* libPods-Injector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Injector.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93CF9BBEE0F24D499C9217B /* Pods-Injector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Injector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Injector/Pods-Injector.debug.xcconfig"; sourceTree = "<group>"; };
 		BD35CFC1B620EF56D001387C /* Pods-Injector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Injector.release.xcconfig"; path = "Pods/Target Support Files/Pods-Injector/Pods-Injector.release.xcconfig"; sourceTree = "<group>"; };
+		D78F8FC51D8966AE00A872C2 /* IJTPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTPreference.h; sourceTree = "<group>"; };
+		D78F8FC61D8966AE00A872C2 /* IJTPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTPreference.m; sourceTree = "<group>"; };
 		D795BA5E1D08398E00826309 /* MobileWiFi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileWiFi.framework; path = PrivateFrameworks/MobileWiFi.framework; sourceTree = "<group>"; };
 		D7C1AC5E1D6F189F002BCD85 /* IJTCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTCommand.h; sourceTree = "<group>"; };
 		D7C1AC5F1D6F189F002BCD85 /* IJTCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTCommand.m; sourceTree = "<group>"; };
@@ -1126,6 +1129,8 @@
 				1CD7F7F01BEB85A800D5A03F /* IJTOpenSSL.m */,
 				D7C1AC5E1D6F189F002BCD85 /* IJTCommand.h */,
 				D7C1AC5F1D6F189F002BCD85 /* IJTCommand.m */,
+				D78F8FC51D8966AE00A872C2 /* IJTPreference.h */,
+				D78F8FC61D8966AE00A872C2 /* IJTPreference.m */,
 			);
 			path = Injector;
 			sourceTree = "<group>";
@@ -2216,6 +2221,7 @@
 				1C61EEAC1C37C7F00082AE19 /* IJTShellshockTableViewController.m in Sources */,
 				1CB8CEF61C119547008BB96A /* IJTLANDeviceDetailTableViewCell.m in Sources */,
 				1C68842B1B6D8B2C00146950 /* IJTArpingArpFrameTableViewCell.m in Sources */,
+				D78F8FC71D8966AE00A872C2 /* IJTPreference.m in Sources */,
 				1C1E93581B2B68B100495A3E /* IJTAdvancedTableViewController.m in Sources */,
 				1CCFA2571B6CEBD600D32A59 /* IJTArpScanTaskTableViewCell.m in Sources */,
 				1C8014911C37EE950026AF51 /* IJTShellshockResultTableViewController.m in Sources */,
