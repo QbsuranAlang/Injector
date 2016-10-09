@@ -1,19 +1,19 @@
 Injector
 =======================
 
-Injector能夠在iOS介面上瀏覽網路封包、網路使用狀態、區域網路主機訊息、系統工具、網路工具指令、防火牆...等功能。
+Injector能夠在iOS介面上瀏覽網路封包、區域網路主機訊息、系統工具、網路工具指令、防火牆...等功能。
 
-Injector function: browse network packet, network usage, LAN host configure, system tool, network command tool, firewall....
+Injector function: sniffing network packet, LAN host configure, system tool, network command tool and firewall...
 
 <img src="Image/Injector.png" width = "300" height = "300">
 
 ## Project
   1. APP
-  2. Daemon
-  3. Website
+  2. Daemon [deprecated]
+  3. Website [deprecated]
 
 ### APP function
-  1. Flow
+  1. Flow [deprecated]
   2. Sniffer
   3. LAN
   4. Tool Kit
