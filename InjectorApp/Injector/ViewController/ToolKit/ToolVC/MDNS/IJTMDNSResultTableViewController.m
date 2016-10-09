@@ -278,9 +278,14 @@ MDNS_CALLBACK_METHOD {
         s = [NSString stringWithFormat:@"Left : %lu(%2d%%)", (unsigned long)count, (int)(progress*100)%100];
     }
     else {
-        s =@"Reading...";
+        s = @"Reading...";
     }
     return s;
+}
+
+- (NSArray *)allStringsForProgressView:(ASProgressPopUpView *)progressView {
+    NSString *s = [NSString stringWithFormat:@"Left : %u(%2d%%)", UINT32_MAX, 100];
+    return @[s, @"Reading..."];
 }
 
 #pragma mark Reachability

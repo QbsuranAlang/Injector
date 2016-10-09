@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'InjectorUploader' target in the 'InjectorUploader' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif

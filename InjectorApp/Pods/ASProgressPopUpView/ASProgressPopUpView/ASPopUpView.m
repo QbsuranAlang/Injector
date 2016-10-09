@@ -27,11 +27,13 @@
 }
 @end
 
-const float ARROW_LENGTH = 8.0;
-const float POPUPVIEW_WIDTH_PAD = 1.15;
-const float POPUPVIEW_HEIGHT_PAD = 1.1;
-
 NSString *const FillColorAnimation = @"fillColor";
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+@interface ASPopUpView () <CAAnimationDelegate>
+@end
+#endif
+
 
 @implementation ASPopUpView
 {
@@ -78,15 +80,17 @@ NSString *const FillColorAnimation = @"fillColor";
         
         self.userInteractionEnabled = NO;
         _pathLayer = (CAShapeLayer *)self.layer; // ivar can now be accessed without casting to CAShapeLayer every time
-        
+
+        _cornerRadius = 4.0;
+        _arrowLength = 8.0;
+        _widthPaddingFactor = 1.15;
+        _heightPaddingFactor = 1.1;
+
         _textLayer = [CATextLayer layer];
         _textLayer.alignmentMode = kCAAlignmentCenter;
         _textLayer.anchorPoint = CGPointMake(0, 0);
         _textLayer.contentsScale = [UIScreen mainScreen].scale;
-        
-        CABasicAnimation *defaultTextLayerAnim = [CABasicAnimation animation];
-        defaultTextLayerAnim.duration = 0.25;
-        _textLayer.actions = @{@"contents" : defaultTextLayerAnim};
+        _textLayer.actions = @{@"contents" : [NSNull null]};
         
         _colorAnimLayer = [CAShapeLayer layer];
         
@@ -167,29 +171,25 @@ NSString *const FillColorAnimation = @"fillColor";
     [_colorAnimLayer addAnimation:colorAnim forKey:FillColorAnimation];
 }
 
-- (void)setAnimationOffset:(CGFloat)animOffset returnColor:(void (^)(UIColor *opaqueReturnColor))block
-{
-    if ([_colorAnimLayer animationForKey:FillColorAnimation]) {
-        _colorAnimLayer.timeOffset = animOffset;
-        _pathLayer.fillColor = [_colorAnimLayer.presentationLayer fillColor];
-        block([self opaqueColor]);
-    }
-}
-
-- (void)setFrame:(CGRect)frame arrowOffset:(CGFloat)arrowOffset text:(NSString *)text
+- (void)setFrame:(CGRect)frame arrowOffset:(CGFloat)arrowOffset colorOffset:(CGFloat)colorOffset text:(NSString *)text
 {
     // only redraw path if either the arrowOffset or popUpView size has changed
     if (arrowOffset != _arrowCenterOffset || !CGSizeEqualToSize(frame.size, self.frame.size)) {
         _pathLayer.path = [self pathForRect:frame withArrowOffset:arrowOffset].CGPath;
     }
     _arrowCenterOffset = arrowOffset;
-
+    
     CGFloat anchorX = 0.5+(arrowOffset/CGRectGetWidth(frame));
     self.layer.anchorPoint = CGPointMake(anchorX, 1);
     self.layer.position = CGPointMake(CGRectGetMinX(frame) + CGRectGetWidth(frame)*anchorX, 0);
     self.layer.bounds = (CGRect){CGPointZero, frame.size};
     
     [self setText:text];
+    
+    if ([_colorAnimLayer animationForKey:FillColorAnimation]) {
+        _colorAnimLayer.timeOffset = colorOffset;
+        _pathLayer.fillColor = [_colorAnimLayer.presentationLayer fillColor];
+    }
 }
 
 // _shouldAnimate = YES; causes 'actionForLayer:' to return an animation for layer property changes
@@ -213,8 +213,8 @@ NSString *const FillColorAnimation = @"fillColor";
 {
     [[_attributedString mutableString] setString:string];
     CGFloat w, h;
-    w = ceilf([_attributedString size].width * POPUPVIEW_WIDTH_PAD);
-    h = ceilf(([_attributedString size].height * POPUPVIEW_HEIGHT_PAD) + ARROW_LENGTH);
+    w = ceilf([_attributedString size].width * _widthPaddingFactor);
+    h = ceilf(([_attributedString size].height * _heightPaddingFactor) + _arrowLength);
     return CGSizeMake(w, h);
 }
 
@@ -231,7 +231,7 @@ NSString *const FillColorAnimation = @"fillColor";
         
         [self.layer animateKey:@"transform" fromValue:fromValue toValue:[NSValue valueWithCATransform3D:CATransform3DIdentity]
                      customize:^(CABasicAnimation *animation) {
-                         animation.duration = 0.8;
+                         animation.duration = 0.6;
                          animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.8 :2.5 :0.35 :0.5];
          }];
         
@@ -242,27 +242,27 @@ NSString *const FillColorAnimation = @"fillColor";
     } [CATransaction commit];
 }
 
-- (void)hideAnimated:(BOOL)animated
+- (void)hideAnimated:(BOOL)animated completionBlock:(void (^)())block
 {
-    if (!animated) {
-        self.layer.opacity = 0.0;
-        return;
-    }
-    
     [CATransaction begin]; {
-        [CATransaction setCompletionBlock:^{ [self.delegate popUpViewDidHide]; }];
-
-        [self.layer animateKey:@"transform" fromValue:nil
-                       toValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.5, 0.5, 1)]
-                     customize:^(CABasicAnimation *animation) {
-                         animation.duration = 0.9;
-                         animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.1 :-2 :0.3 :3];
-         }];
-        
-        [self.layer animateKey:@"opacity" fromValue:nil toValue:@0.0 customize:^(CABasicAnimation *animation) {
-            animation.duration = 1.0;
+        [CATransaction setCompletionBlock:^{
+            block();
+            self.layer.transform = CATransform3DIdentity;
         }];
-        
+        if (animated) {
+            [self.layer animateKey:@"transform" fromValue:nil
+                           toValue:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.5, 0.5, 1)]
+                         customize:^(CABasicAnimation *animation) {
+                             animation.duration = 0.55;
+                             animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.1 :-2 :0.3 :3];
+                         }];
+            
+            [self.layer animateKey:@"opacity" fromValue:nil toValue:@0.0 customize:^(CABasicAnimation *animation) {
+                animation.duration = 0.75;
+            }];
+        } else { // not animated - just set opacity to 0.0
+            self.layer.opacity = 0.0;
+        }
     } [CATransaction commit];
 }
 
@@ -276,7 +276,7 @@ NSString *const FillColorAnimation = @"fillColor";
     _colorAnimLayer.timeOffset = [self.delegate currentValueOffset];
     
     _pathLayer.fillColor = [_colorAnimLayer.presentationLayer fillColor];
-    [self.delegate colorDidUpdate:[self opaqueColor]];
+//    [self.delegate colorDidUpdate:[self opaqueColor]];
 }
 
 #pragma mark - private
@@ -289,7 +289,7 @@ NSString *const FillColorAnimation = @"fillColor";
 
     // Create rounded rect
     CGRect roundedRect = rect;
-    roundedRect.size.height -= ARROW_LENGTH;
+    roundedRect.size.height -= _arrowLength;
     UIBezierPath *popUpPath = [UIBezierPath bezierPathWithRoundedRect:roundedRect cornerRadius:_cornerRadius];
     
     // Create arrow path
@@ -317,7 +317,7 @@ NSString *const FillColorAnimation = @"fillColor";
     
     CGFloat textHeight = [_attributedString size].height;
     CGRect textRect = CGRectMake(self.bounds.origin.x,
-                                 (self.bounds.size.height-ARROW_LENGTH-textHeight)/2,
+                                 (self.bounds.size.height-_arrowLength-textHeight)/2,
                                  self.bounds.size.width, textHeight);
     _textLayer.frame = CGRectIntegral(textRect);
 }

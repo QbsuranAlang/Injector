@@ -29,6 +29,7 @@ typedef void (^CZDismissCompletionCallback)(void);
 @property UIView *footerview;
 @property UITableView *tableView;
 @property NSMutableArray *selectedIndexPaths;
+@property CGRect previousBounds;
 @end
 
 @implementation CZPickerView
@@ -64,8 +65,8 @@ typedef void (^CZDismissCompletionCallback)(void);
         self.confirmButtonHighlightedColor = [UIColor colorWithRed:236.0/255 green:240/255.0 blue:241.0/255 alpha:1];
         self.confirmButtonBackgroundColor = [UIColor colorWithRed:56.0/255 green:185.0/255 blue:158.0/255 alpha:1];
         
-        CGRect rect= [UIScreen mainScreen].bounds;
-        self.frame = rect;
+        _previousBounds = [UIScreen mainScreen].bounds;
+        self.frame = _previousBounds;
     }
     return self;
 }
@@ -103,37 +104,60 @@ typedef void (^CZDismissCompletionCallback)(void);
     [UIView animateWithDuration:self.animationDuration delay:0 usingSpringWithDamping:0.7f initialSpringVelocity:3.0f options:UIViewAnimationOptionAllowAnimatedContent animations:^{
         self.containerView.center = self.center;
     } completion:^(BOOL finished) {
-        
+        if([self.delegate respondsToSelector:@selector(czpickerViewDidDisplay:)]){
+            [self.delegate czpickerViewDidDisplay:self];
+        }
     }];
 }
 
-- (void)show{
+- (void)show {
+    UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+    self.frame = mainWindow.frame;
+    [self showInContainer:mainWindow];
+}
+
+- (void)showInContainer:(id)container {
     
-    if(self.allowMultipleSelection && !self.needFooterView){
+    if([self.delegate respondsToSelector:@selector(czpickerViewWillDisplay:)]){
+        [self.delegate czpickerViewWillDisplay:self];
+    }
+    if (self.allowMultipleSelection && !self.needFooterView) {
         self.needFooterView = self.allowMultipleSelection;
     }
     
-    UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
-    self.frame = mainWindow.frame;
-    [mainWindow addSubview:self];
-    [self setupSubviews];
-    [self performContainerAnimation];
-    
-    [UIView animateWithDuration:0.3f animations:^{
-        self.backgroundDimmingView.alpha = CZP_BACKGROUND_ALPHA;
-    }];
+    if ([container respondsToSelector:@selector(addSubview:)]) {
+        [container addSubview:self];
+        
+        [self setupSubviews];
+        [self performContainerAnimation];
+        
+        [UIView animateWithDuration:self.animationDuration animations:^{
+            self.backgroundDimmingView.alpha = CZP_BACKGROUND_ALPHA;
+        }];
+    }
+}
+
+- (void)reloadData{
+    [self.tableView reloadData];
 }
 
 - (void)dismissPicker:(CZDismissCompletionCallback)completion{
+    
+    if([self.delegate respondsToSelector:@selector(czpickerViewWillDismiss:)]){
+        [self.delegate czpickerViewWillDismiss:self];
+    }
     [UIView animateWithDuration:self.animationDuration delay:0 usingSpringWithDamping:0.7f initialSpringVelocity:3.0f options:UIViewAnimationOptionAllowAnimatedContent animations:^{
         self.containerView.center = CGPointMake(self.center.x, self.center.y + self.frame.size.height);
     }completion:^(BOOL finished) {
     }];
     
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:self.animationDuration animations:^{
         self.backgroundDimmingView.alpha = 0.0;
     } completion:^(BOOL finished) {
         if(finished){
+            if([self.delegate respondsToSelector:@selector(czpickerViewDidDismiss:)]){
+                [self.delegate czpickerViewDidDismiss:self];
+            }
             if(completion){
                 completion();
             }
@@ -142,8 +166,9 @@ typedef void (^CZDismissCompletionCallback)(void);
     }];
 }
 
-- (UIView *)buildContainerView{
-    CGAffineTransform transform = CGAffineTransformMake(0.8, 0, 0, 0.8, 0, 0);
+- (UIView *)buildContainerView {
+    CGFloat widthRatio = _pickerWidth ? _pickerWidth / [UIScreen mainScreen].bounds.size.width : 0.8;
+    CGAffineTransform transform = CGAffineTransformMake(widthRatio, 0, 0, 0.8, 0, 0);
     CGRect newRect = CGRectApplyAffineTransform(self.frame, transform);
     UIView *cv = [[UIView alloc] initWithFrame:newRect];
     cv.layer.cornerRadius = 6.0f;
@@ -153,7 +178,8 @@ typedef void (^CZDismissCompletionCallback)(void);
 }
 
 - (UITableView *)buildTableView{
-    CGAffineTransform transform = CGAffineTransformMake(0.8, 0, 0, 0.8, 0, 0);
+    CGFloat widthRatio = _pickerWidth ? _pickerWidth / [UIScreen mainScreen].bounds.size.width : 0.8;
+    CGAffineTransform transform = CGAffineTransformMake(widthRatio, 0, 0, 0.8, 0, 0);
     CGRect newRect = CGRectApplyAffineTransform(self.frame, transform);
     NSInteger n = [self.dataSource numberOfRowsInPickerView:self];
     CGRect tableRect;
@@ -291,6 +317,11 @@ typedef void (^CZDismissCompletionCallback)(void);
     }
 }
 
+- (void)unselectAll {
+    self.selectedIndexPaths = [NSMutableArray new];
+    [self.tableView reloadData];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([self.dataSource respondsToSelector:@selector(numberOfRowsInPickerView:)]) {
@@ -321,6 +352,10 @@ typedef void (^CZDismissCompletionCallback)(void);
         cell.textLabel.attributedText = [self.dataSource czpickerView:self attributedTitleForRow:indexPath.row];
     } else if([self.dataSource respondsToSelector:@selector(czpickerView:titleForRow:)]){
         cell.textLabel.text = [self.dataSource czpickerView:self titleForRow:indexPath.row];
+    }
+    
+    if(self.checkmarkColor){
+        cell.tintColor = self.checkmarkColor;
     }
     return cell;
 }
@@ -380,52 +415,25 @@ typedef void (^CZDismissCompletionCallback)(void);
     NSMutableSet *set = [NSMutableSet set];
     for(NSString *o in supportedOrientations){
         NSRange range = [o rangeOfString:@"Portrait"];
-        if ( range.location != NSNotFound ) {
+        if (range.location != NSNotFound) {
             [set addObject:@"Portrait"];
         }
         
         range = [o rangeOfString:@"Landscape"];
-        if ( range.location != NSNotFound ) {
+        if (range.location != NSNotFound) {
             [set addObject:@"Landscape"];
         }
     }
     return set.count == 2;
 }
 
-- (BOOL)orientationSupported:(UIDeviceOrientation)orientation{
-    NSString *orientationStr;
-    switch (orientation) {
-        case UIDeviceOrientationPortrait:
-            orientationStr = @"UIInterfaceOrientationPortrait";
-            break;
-        case UIDeviceOrientationPortraitUpsideDown:
-            orientationStr = @"UIInterfaceOrientationPortraitUpsideDown";
-            break;
-        case UIDeviceOrientationLandscapeLeft:
-            orientationStr = @"UIInterfaceOrientationLandscapeLeft";
-            break;
-        case UIDeviceOrientationLandscapeRight:
-            orientationStr = @"UIInterfaceOrientationLandscapeRight";
-            break;
-        default:
-            orientationStr = @"Invalid Interface Orientation";
-            break;
-    }
-    NSArray *supportedOrientations = [[[NSBundle mainBundle] infoDictionary]
-                                      objectForKey:@"UISupportedInterfaceOrientations"];
-    for(NSString *o in supportedOrientations){
-        if([o hasPrefix:orientationStr]){
-            return YES;
-        }
-    }
-    return NO;
-}
-
 - (void)deviceOrientationDidChange:(NSNotification *)notification{
-    if(![self orientationSupported:[[UIDevice currentDevice] orientation]]){
+    CGRect rect = [UIScreen mainScreen].bounds;
+    if (CGRectEqualToRect(rect, _previousBounds)) {
         return;
     }
-    self.frame = [UIScreen mainScreen].bounds;
+    _previousBounds = rect;
+    self.frame = rect;
     for(UIView *v in self.subviews){
         if([v isEqual:self.backgroundDimmingView]) continue;
         

@@ -14,7 +14,7 @@
 
 + (ASProgressPopUpView *)baseProgressPopUpView {
     ASProgressPopUpView *progressView;
-    progressView = [[ASProgressPopUpView alloc] initWithFrame:CGRectMake(25, 0, SCREEN_WIDTH - 50, 50)];
+    progressView = [[ASProgressPopUpView alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH - 30, 6)];
     progressView.font = [UIFont systemFontOfSize:28];
     progressView.popUpViewCornerRadius = 12.0;
     progressView.popUpViewAnimatedColors = @[IJTFlowColor, IJTSnifferColor, IJTLANColor, IJTToolsColor, IJTFirewallColor, IJTSupportColor];

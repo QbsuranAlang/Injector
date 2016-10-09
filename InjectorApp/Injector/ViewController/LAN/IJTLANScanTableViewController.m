@@ -316,6 +316,7 @@ struct bits {
 }
 
 - (void)postToDatabaseStore: (id)object {
+#if 0
     NSDate *date = object;
     NSString *json = [IJTJson array2string:_onlineArray];
     json = [IJTHTTP string2post:json];
@@ -331,6 +332,7 @@ struct bits {
                         }
                         self.postThread = nil;
                     }];
+#endif
 }
 
 #pragma mark arp scan
@@ -1041,6 +1043,11 @@ MDNS_PTR_CALLBACK_METHOD {
         s = @"Querying with tool...";
     }
     return s;
+}
+
+- (NSArray *)allStringsForProgressView:(ASProgressPopUpView *)progressView {
+    NSString *s = [NSString stringWithFormat:@"Left : %u(%2d%%)", UINT32_MAX, 100];
+    return @[@"Initializing...", s, @"Querying with tool..."];
 }
 
 #pragma mark - Table view data source

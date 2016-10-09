@@ -12,16 +12,6 @@
 		1C02D23C1B959ABE003C2864 /* IJTSSDP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02D23A1B959ABE003C2864 /* IJTSSDP.m */; };
 		1C02D2421B959B55003C2864 /* IJTSSDPServerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02D2411B959B55003C2864 /* IJTSSDPServerTableViewCell.m */; };
 		1C09713A1AF467A300FBD5B4 /* IJTID.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0971391AF467A300FBD5B4 /* IJTID.m */; };
-		1C0DCAA61BECE00C00CDA806 /* BackBoardServices in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCA9C1BECE00C00CDA806 /* BackBoardServices */; };
-		1C0DCAA71BECE00C00CDA806 /* CommunicationsFilter in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCA9D1BECE00C00CDA806 /* CommunicationsFilter */; };
-		1C0DCAA81BECE00C00CDA806 /* CoreTelephony in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCA9E1BECE00C00CDA806 /* CoreTelephony */; };
-		1C0DCAA91BECE00C00CDA806 /* MediaRemote in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCA9F1BECE00C00CDA806 /* MediaRemote */; };
-		1C0DCAAA1BECE00C00CDA806 /* MobileGestalt in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCAA01BECE00C00CDA806 /* MobileGestalt */; };
-		1C0DCAAB1BECE00C00CDA806 /* MobileIcons in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCAA11BECE00C00CDA806 /* MobileIcons */; };
-		1C0DCAAC1BECE00C00CDA806 /* MobileInstallation in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCAA21BECE00C00CDA806 /* MobileInstallation */; };
-		1C0DCAAD1BECE00C00CDA806 /* MobileWiFi in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCAA31BECE00C00CDA806 /* MobileWiFi */; };
-		1C0DCAAE1BECE00C00CDA806 /* SpringBoardServices in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCAA41BECE00C00CDA806 /* SpringBoardServices */; };
-		1C0DCAAF1BECE00C00CDA806 /* TelephonyUI in Resources */ = {isa = PBXBuildFile; fileRef = 1C0DCAA51BECE00C00CDA806 /* TelephonyUI */; };
 		1C0E3F441AA05E8100078F52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E3F431AA05E8100078F52 /* main.m */; };
 		1C0E3F471AA05E8100078F52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E3F461AA05E8100078F52 /* AppDelegate.m */; };
 		1C0E3F551AA05E8100078F52 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0E3F531AA05E8100078F52 /* LaunchScreen.xib */; };
@@ -106,7 +96,6 @@
 		1C5972341B3490E100632942 /* IJTICMPRuleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5972331B3490E100632942 /* IJTICMPRuleTableViewCell.m */; };
 		1C5F98F21B062D1300187FC1 /* CountryIcon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C5F98F01B062D1300187FC1 /* CountryIcon.bundle */; };
 		1C61EEA11C37C5130082AE19 /* IJTShellshock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61EEA01C37C5130082AE19 /* IJTShellshock.m */; };
-		1C61EEA41C37C59D0082AE19 /* curl in Resources */ = {isa = PBXBuildFile; fileRef = 1C61EEA31C37C59D0082AE19 /* curl */; };
 		1C61EEA61C37C6480082AE19 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C61EEA51C37C6480082AE19 /* libcurl.a */; };
 		1C61EEA81C37C6B10082AE19 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C61EEA71C37C6B10082AE19 /* libz.dylib */; };
 		1C61EEAC1C37C7F00082AE19 /* IJTShellshockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61EEAB1C37C7F00082AE19 /* IJTShellshockTableViewController.m */; };
@@ -324,16 +313,6 @@
 		1C02D2411B959B55003C2864 /* IJTSSDPServerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IJTSSDPServerTableViewCell.m; path = ToolVC/SSDP/IJTSSDPServerTableViewCell.m; sourceTree = "<group>"; };
 		1C0971381AF467A300FBD5B4 /* IJTID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTID.h; sourceTree = "<group>"; };
 		1C0971391AF467A300FBD5B4 /* IJTID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTID.m; sourceTree = "<group>"; };
-		1C0DCA9C1BECE00C00CDA806 /* BackBoardServices */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BackBoardServices; path = "ios-reversed-headers/BackBoardServices"; sourceTree = "<group>"; };
-		1C0DCA9D1BECE00C00CDA806 /* CommunicationsFilter */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CommunicationsFilter; path = "ios-reversed-headers/CommunicationsFilter"; sourceTree = "<group>"; };
-		1C0DCA9E1BECE00C00CDA806 /* CoreTelephony */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoreTelephony; path = "ios-reversed-headers/CoreTelephony"; sourceTree = "<group>"; };
-		1C0DCA9F1BECE00C00CDA806 /* MediaRemote */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MediaRemote; path = "ios-reversed-headers/MediaRemote"; sourceTree = "<group>"; };
-		1C0DCAA01BECE00C00CDA806 /* MobileGestalt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MobileGestalt; path = "ios-reversed-headers/MobileGestalt"; sourceTree = "<group>"; };
-		1C0DCAA11BECE00C00CDA806 /* MobileIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MobileIcons; path = "ios-reversed-headers/MobileIcons"; sourceTree = "<group>"; };
-		1C0DCAA21BECE00C00CDA806 /* MobileInstallation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MobileInstallation; path = "ios-reversed-headers/MobileInstallation"; sourceTree = "<group>"; };
-		1C0DCAA31BECE00C00CDA806 /* MobileWiFi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MobileWiFi; path = "ios-reversed-headers/MobileWiFi"; sourceTree = "<group>"; };
-		1C0DCAA41BECE00C00CDA806 /* SpringBoardServices */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpringBoardServices; path = "ios-reversed-headers/SpringBoardServices"; sourceTree = "<group>"; };
-		1C0DCAA51BECE00C00CDA806 /* TelephonyUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TelephonyUI; path = "ios-reversed-headers/TelephonyUI"; sourceTree = "<group>"; };
 		1C0DCAB01BECE03800CDA806 /* MobileWiFi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileWiFi.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/MobileWiFi.framework; sourceTree = DEVELOPER_DIR; };
 		1C0E3F3E1AA05E8100078F52 /* Injector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Injector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C0E3F421AA05E8100078F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -495,7 +474,6 @@
 		1C5F98F01B062D1300187FC1 /* CountryIcon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CountryIcon.bundle; sourceTree = "<group>"; };
 		1C61EE9F1C37C5130082AE19 /* IJTShellshock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IJTShellshock.h; path = ToolKit/IJTShellshock.h; sourceTree = "<group>"; };
 		1C61EEA01C37C5130082AE19 /* IJTShellshock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IJTShellshock.m; path = ToolKit/IJTShellshock.m; sourceTree = "<group>"; };
-		1C61EEA31C37C59D0082AE19 /* curl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = curl; path = "include-for-ios/curl"; sourceTree = "<group>"; };
 		1C61EEA51C37C6480082AE19 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = Injector/libcurl.a; sourceTree = "<group>"; };
 		1C61EEA71C37C6B10082AE19 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1C61EEAA1C37C7F00082AE19 /* IJTShellshockTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IJTShellshockTableViewController.h; path = ToolVC/Shellshock/IJTShellshockTableViewController.h; sourceTree = "<group>"; };
@@ -880,6 +858,39 @@
 		40179C17A0062BCBF3A471BE /* libPods-Injector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Injector.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93CF9BBEE0F24D499C9217B /* Pods-Injector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Injector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Injector/Pods-Injector.debug.xcconfig"; sourceTree = "<group>"; };
 		BD35CFC1B620EF56D001387C /* Pods-Injector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Injector.release.xcconfig"; path = "Pods/Target Support Files/Pods-Injector/Pods-Injector.release.xcconfig"; sourceTree = "<group>"; };
+		D730F9651DAAE85E00CD9012 /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = curl.h; path = "include-for-ios/curl/curl.h"; sourceTree = "<group>"; };
+		D730F9661DAAE85E00CD9012 /* curlbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = curlbuild.h; path = "include-for-ios/curl/curlbuild.h"; sourceTree = "<group>"; };
+		D730F9671DAAE85E00CD9012 /* curlrules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = curlrules.h; path = "include-for-ios/curl/curlrules.h"; sourceTree = "<group>"; };
+		D730F9681DAAE85E00CD9012 /* curlver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = curlver.h; path = "include-for-ios/curl/curlver.h"; sourceTree = "<group>"; };
+		D730F9691DAAE85E00CD9012 /* easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = easy.h; path = "include-for-ios/curl/easy.h"; sourceTree = "<group>"; };
+		D730F96A1DAAE85E00CD9012 /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mprintf.h; path = "include-for-ios/curl/mprintf.h"; sourceTree = "<group>"; };
+		D730F96B1DAAE85E00CD9012 /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = multi.h; path = "include-for-ios/curl/multi.h"; sourceTree = "<group>"; };
+		D730F96C1DAAE85E00CD9012 /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdcheaders.h; path = "include-for-ios/curl/stdcheaders.h"; sourceTree = "<group>"; };
+		D730F96D1DAAE85E00CD9012 /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "typecheck-gcc.h"; path = "include-for-ios/curl/typecheck-gcc.h"; sourceTree = "<group>"; };
+		D730F96F1DAAE92000CD9012 /* BackBoardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackBoardServices.h; path = "ios-reversed-headers/BackBoardServices/BackBoardServices.h"; sourceTree = "<group>"; };
+		D730F9711DAAE93000CD9012 /* CommunicationFilterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommunicationFilterItem.h; path = "ios-reversed-headers/CommunicationsFilter/CommunicationFilterItem.h"; sourceTree = "<group>"; };
+		D730F9721DAAE93000CD9012 /* CommunicationFilterItemCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommunicationFilterItemCache.h; path = "ios-reversed-headers/CommunicationsFilter/CommunicationFilterItemCache.h"; sourceTree = "<group>"; };
+		D730F9731DAAE93000CD9012 /* CommunicationsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommunicationsFilter.h; path = "ios-reversed-headers/CommunicationsFilter/CommunicationsFilter.h"; sourceTree = "<group>"; };
+		D730F9741DAAE93000CD9012 /* CommunicationsFilterBlockList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommunicationsFilterBlockList.h; path = "ios-reversed-headers/CommunicationsFilter/CommunicationsFilterBlockList.h"; sourceTree = "<group>"; };
+		D730F9751DAAE93000CD9012 /* CommunicationsFilterBlockListCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommunicationsFilterBlockListCache.h; path = "ios-reversed-headers/CommunicationsFilter/CommunicationsFilterBlockListCache.h"; sourceTree = "<group>"; };
+		D730F9771DAAE94300CD9012 /* CoreTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreTelephony.h; path = "ios-reversed-headers/CoreTelephony/CoreTelephony.h"; sourceTree = "<group>"; };
+		D730F9781DAAE94300CD9012 /* CTCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTCall.h; path = "ios-reversed-headers/CoreTelephony/CTCall.h"; sourceTree = "<group>"; };
+		D730F9791DAAE94300CD9012 /* CTCellularDataPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTCellularDataPlan.h; path = "ios-reversed-headers/CoreTelephony/CTCellularDataPlan.h"; sourceTree = "<group>"; };
+		D730F97A1DAAE94300CD9012 /* CTIndicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTIndicators.h; path = "ios-reversed-headers/CoreTelephony/CTIndicators.h"; sourceTree = "<group>"; };
+		D730F97B1DAAE94300CD9012 /* CTRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTRegistration.h; path = "ios-reversed-headers/CoreTelephony/CTRegistration.h"; sourceTree = "<group>"; };
+		D730F97C1DAAE94300CD9012 /* CTSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSetting.h; path = "ios-reversed-headers/CoreTelephony/CTSetting.h"; sourceTree = "<group>"; };
+		D730F97D1DAAE94300CD9012 /* CTSIMSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSIMSupport.h; path = "ios-reversed-headers/CoreTelephony/CTSIMSupport.h"; sourceTree = "<group>"; };
+		D730F97E1DAAE94300CD9012 /* CTTelephonyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTTelephonyCenter.h; path = "ios-reversed-headers/CoreTelephony/CTTelephonyCenter.h"; sourceTree = "<group>"; };
+		D730F9801DAAE95500CD9012 /* MediaRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaRemote.h; path = "ios-reversed-headers/MediaRemote/MediaRemote.h"; sourceTree = "<group>"; };
+		D730F9821DAAE96800CD9012 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileGestalt.h; path = "ios-reversed-headers/MobileGestalt/MobileGestalt.h"; sourceTree = "<group>"; };
+		D730F9841DAAE97900CD9012 /* MobileIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileIcons.h; path = "ios-reversed-headers/MobileIcons/MobileIcons.h"; sourceTree = "<group>"; };
+		D730F9861DAAE98B00CD9012 /* MobileInstallation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileInstallation.h; path = "ios-reversed-headers/MobileInstallation/MobileInstallation.h"; sourceTree = "<group>"; };
+		D730F9881DAAE99B00CD9012 /* MobileWiFi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileWiFi.h; path = "ios-reversed-headers/MobileWiFi/MobileWiFi.h"; sourceTree = "<group>"; };
+		D730F9891DAAE99B00CD9012 /* WiFiDeviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiFiDeviceClient.h; path = "ios-reversed-headers/MobileWiFi/WiFiDeviceClient.h"; sourceTree = "<group>"; };
+		D730F98A1DAAE99B00CD9012 /* WiFiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiFiManager.h; path = "ios-reversed-headers/MobileWiFi/WiFiManager.h"; sourceTree = "<group>"; };
+		D730F98B1DAAE99B00CD9012 /* WiFiNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiFiNetwork.h; path = "ios-reversed-headers/MobileWiFi/WiFiNetwork.h"; sourceTree = "<group>"; };
+		D730F98D1DAAE9AD00CD9012 /* SpringBoardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpringBoardServices.h; path = "ios-reversed-headers/SpringBoardServices/SpringBoardServices.h"; sourceTree = "<group>"; };
+		D730F98F1DAAE9BB00CD9012 /* TelephonyUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TelephonyUI.h; path = "ios-reversed-headers/TelephonyUI/TelephonyUI.h"; sourceTree = "<group>"; };
 		D78F8FC51D8966AE00A872C2 /* IJTPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJTPreference.h; sourceTree = "<group>"; };
 		D78F8FC61D8966AE00A872C2 /* IJTPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJTPreference.m; sourceTree = "<group>"; };
 		D795BA5E1D08398E00826309 /* MobileWiFi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileWiFi.framework; path = PrivateFrameworks/MobileWiFi.framework; sourceTree = "<group>"; };
@@ -996,16 +1007,16 @@
 		1C0DCA9B1BECE00300CDA806 /* ios-reversed-headers */ = {
 			isa = PBXGroup;
 			children = (
-				1C0DCA9C1BECE00C00CDA806 /* BackBoardServices */,
-				1C0DCA9D1BECE00C00CDA806 /* CommunicationsFilter */,
-				1C0DCA9E1BECE00C00CDA806 /* CoreTelephony */,
-				1C0DCA9F1BECE00C00CDA806 /* MediaRemote */,
-				1C0DCAA01BECE00C00CDA806 /* MobileGestalt */,
-				1C0DCAA11BECE00C00CDA806 /* MobileIcons */,
-				1C0DCAA21BECE00C00CDA806 /* MobileInstallation */,
-				1C0DCAA31BECE00C00CDA806 /* MobileWiFi */,
-				1C0DCAA41BECE00C00CDA806 /* SpringBoardServices */,
-				1C0DCAA51BECE00C00CDA806 /* TelephonyUI */,
+				D730F98E1DAAE9B300CD9012 /* TelephonyUI */,
+				D730F98C1DAAE9A400CD9012 /* SpringBoardServices */,
+				D730F9871DAAE99100CD9012 /* MobileWiFi */,
+				D730F9851DAAE98200CD9012 /* MobileInstallation */,
+				D730F9831DAAE97000CD9012 /* MobileIcons */,
+				D730F9811DAAE95B00CD9012 /* MobileGestalt */,
+				D730F97F1DAAE94D00CD9012 /* MediaRemote */,
+				D730F9761DAAE93900CD9012 /* CoreTelephony */,
+				D730F9701DAAE92700CD9012 /* CommunicationsFilter */,
+				D730F96E1DAAE91100CD9012 /* BackBoardServices */,
 			);
 			name = "ios-reversed-headers";
 			sourceTree = "<group>";
@@ -1409,7 +1420,7 @@
 		1C61EEA21C37C5890082AE19 /* include-for-ios */ = {
 			isa = PBXGroup;
 			children = (
-				1C61EEA31C37C59D0082AE19 /* curl */,
+				D730F9641DAAE84F00CD9012 /* curl */,
 			);
 			name = "include-for-ios";
 			sourceTree = "<group>";
@@ -1979,6 +1990,116 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D730F9641DAAE84F00CD9012 /* curl */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9651DAAE85E00CD9012 /* curl.h */,
+				D730F9661DAAE85E00CD9012 /* curlbuild.h */,
+				D730F9671DAAE85E00CD9012 /* curlrules.h */,
+				D730F9681DAAE85E00CD9012 /* curlver.h */,
+				D730F9691DAAE85E00CD9012 /* easy.h */,
+				D730F96A1DAAE85E00CD9012 /* mprintf.h */,
+				D730F96B1DAAE85E00CD9012 /* multi.h */,
+				D730F96C1DAAE85E00CD9012 /* stdcheaders.h */,
+				D730F96D1DAAE85E00CD9012 /* typecheck-gcc.h */,
+			);
+			name = curl;
+			sourceTree = "<group>";
+		};
+		D730F96E1DAAE91100CD9012 /* BackBoardServices */ = {
+			isa = PBXGroup;
+			children = (
+				D730F96F1DAAE92000CD9012 /* BackBoardServices.h */,
+			);
+			name = BackBoardServices;
+			sourceTree = "<group>";
+		};
+		D730F9701DAAE92700CD9012 /* CommunicationsFilter */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9711DAAE93000CD9012 /* CommunicationFilterItem.h */,
+				D730F9721DAAE93000CD9012 /* CommunicationFilterItemCache.h */,
+				D730F9731DAAE93000CD9012 /* CommunicationsFilter.h */,
+				D730F9741DAAE93000CD9012 /* CommunicationsFilterBlockList.h */,
+				D730F9751DAAE93000CD9012 /* CommunicationsFilterBlockListCache.h */,
+			);
+			name = CommunicationsFilter;
+			sourceTree = "<group>";
+		};
+		D730F9761DAAE93900CD9012 /* CoreTelephony */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9771DAAE94300CD9012 /* CoreTelephony.h */,
+				D730F9781DAAE94300CD9012 /* CTCall.h */,
+				D730F9791DAAE94300CD9012 /* CTCellularDataPlan.h */,
+				D730F97A1DAAE94300CD9012 /* CTIndicators.h */,
+				D730F97B1DAAE94300CD9012 /* CTRegistration.h */,
+				D730F97C1DAAE94300CD9012 /* CTSetting.h */,
+				D730F97D1DAAE94300CD9012 /* CTSIMSupport.h */,
+				D730F97E1DAAE94300CD9012 /* CTTelephonyCenter.h */,
+			);
+			name = CoreTelephony;
+			sourceTree = "<group>";
+		};
+		D730F97F1DAAE94D00CD9012 /* MediaRemote */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9801DAAE95500CD9012 /* MediaRemote.h */,
+			);
+			name = MediaRemote;
+			sourceTree = "<group>";
+		};
+		D730F9811DAAE95B00CD9012 /* MobileGestalt */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9821DAAE96800CD9012 /* MobileGestalt.h */,
+			);
+			name = MobileGestalt;
+			sourceTree = "<group>";
+		};
+		D730F9831DAAE97000CD9012 /* MobileIcons */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9841DAAE97900CD9012 /* MobileIcons.h */,
+			);
+			name = MobileIcons;
+			sourceTree = "<group>";
+		};
+		D730F9851DAAE98200CD9012 /* MobileInstallation */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9861DAAE98B00CD9012 /* MobileInstallation.h */,
+			);
+			name = MobileInstallation;
+			sourceTree = "<group>";
+		};
+		D730F9871DAAE99100CD9012 /* MobileWiFi */ = {
+			isa = PBXGroup;
+			children = (
+				D730F9881DAAE99B00CD9012 /* MobileWiFi.h */,
+				D730F9891DAAE99B00CD9012 /* WiFiDeviceClient.h */,
+				D730F98A1DAAE99B00CD9012 /* WiFiManager.h */,
+				D730F98B1DAAE99B00CD9012 /* WiFiNetwork.h */,
+			);
+			name = MobileWiFi;
+			sourceTree = "<group>";
+		};
+		D730F98C1DAAE9A400CD9012 /* SpringBoardServices */ = {
+			isa = PBXGroup;
+			children = (
+				D730F98D1DAAE9AD00CD9012 /* SpringBoardServices.h */,
+			);
+			name = SpringBoardServices;
+			sourceTree = "<group>";
+		};
+		D730F98E1DAAE9B300CD9012 /* TelephonyUI */ = {
+			isa = PBXGroup;
+			children = (
+				D730F98F1DAAE9BB00CD9012 /* TelephonyUI.h */,
+			);
+			name = TelephonyUI;
+			sourceTree = "<group>";
+		};
 		D795BA5D1D08394A00826309 /* PrivateFrameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2027,7 +2148,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = IJT;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Qbsuran Alang";
 				TargetAttributes = {
 					1C0E3F3D1AA05E8100078F52 = {
@@ -2066,28 +2187,20 @@
 				1CB445B41CA3182A00EA7F71 /* TroubleshootingStoryboard.storyboard in Resources */,
 				1C6E441E1B8ACB410036B448 /* port.json in Resources */,
 				1C75EBD51B99076B008B63D8 /* SupportStoryboard.storyboard in Resources */,
-				1C61EEA41C37C59D0082AE19 /* curl in Resources */,
 				1C7764C71AA47B5D00C290BF /* Filtering_expression_syntax.html in Resources */,
 				1C3CB0981B02486D00EE9A0D /* KlavikaLightCaps-SC.otf in Resources */,
-				1C0DCAAE1BECE00C00CDA806 /* SpringBoardServices in Resources */,
 				1CB445C01CA3193E00EA7F71 /* OtherStoryboard.storyboard in Resources */,
 				1C3CB0971B02486D00EE9A0D /* KlavikaLight-Plain.otf in Resources */,
 				1C5F98F21B062D1300187FC1 /* CountryIcon.bundle in Resources */,
 				1C86D20D1B01EB4100C8E2E2 /* Main.storyboard in Resources */,
-				1C0DCAAF1BECE00C00CDA806 /* TelephonyUI in Resources */,
 				1C45220C1B9AD1BE00D1B96C /* postrm in Resources */,
 				1CB445A21CA3139C00EA7F71 /* CacheStoryboard.storyboard in Resources */,
 				1CB445A41CA3158800EA7F71 /* InternetStoryboard.storyboard in Resources */,
 				1C11B0A61B1439CA002CA849 /* Images.xcassets in Resources */,
 				1C3769F61AA23CE40033B8FE /* prerm in Resources */,
 				1CE676531B67AC26003E5040 /* Ressources.bundle in Resources */,
-				1C0DCAAD1BECE00C00CDA806 /* MobileWiFi in Resources */,
-				1C0DCAA61BECE00C00CDA806 /* BackBoardServices in Resources */,
-				1C0DCAAA1BECE00C00CDA806 /* MobileGestalt in Resources */,
 				1C5197111B035BD200666980 /* SnifferStoryboard.storyboard in Resources */,
-				1C0DCAA81BECE00C00CDA806 /* CoreTelephony in Resources */,
 				1CB445B21CA3182A00EA7F71 /* ExploitStoryboard.storyboard in Resources */,
-				1C0DCAA91BECE00C00CDA806 /* MediaRemote in Resources */,
 				1C51970F1B034AFF00666980 /* FlowStoryboard.storyboard in Resources */,
 				1CB445BA1CA318B300EA7F71 /* Denial of ServiceStoryboard.storyboard in Resources */,
 				1C1E934F1B2B632900495A3E /* FirewallStoryboard.storyboard in Resources */,
@@ -2097,12 +2210,9 @@
 				1CB8CEE31C11951A008BB96A /* LANStoryboard.storyboard in Resources */,
 				1C7764C91AA47B5D00C290BF /* winpcap_small.gif in Resources */,
 				1CCFB4E21AA4DA3A00D2F1E1 /* DefaultPcapFilter.plist in Resources */,
-				1C0DCAA71BECE00C00CDA806 /* CommunicationsFilter in Resources */,
 				1CB445A61CA315C400EA7F71 /* ARPStoryboard.storyboard in Resources */,
 				1CB445B31CA3182A00EA7F71 /* Name ServiceStoryboard.storyboard in Resources */,
-				1C0DCAAC1BECE00C00CDA806 /* MobileInstallation in Resources */,
 				1C6324181B9B97AB00350E8C /* OldLondon.ttf in Resources */,
-				1C0DCAAB1BECE00C00CDA806 /* MobileIcons in Resources */,
 				1CB445B81CA3188B00EA7F71 /* SSL and TLSStoryboard.storyboard in Resources */,
 				1CB445BE1CA3192700EA7F71 /* PrankStoryboard.storyboard in Resources */,
 				1C3CB0991B02486D00EE9A0D /* KlavikaRegCaps-SC.otf in Resources */,
@@ -2455,8 +2565,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2466,6 +2578,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2500,8 +2613,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2510,6 +2625,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

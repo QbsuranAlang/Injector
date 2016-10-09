@@ -147,11 +147,10 @@ static void handleUncaughtException(NSException *exception) {
     //enable shake
     application.applicationSupportsShakeToEdit = YES;
     
-    
     //facebook
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-
+#if 0
     NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
     [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
     [IJTDispatch dispatch_global:IJTDispatchPriorityDefault block:^{
@@ -163,6 +162,7 @@ static void handleUncaughtException(NSException *exception) {
     
     //load manually
     [IJTCommand restartInjectorDaemon];
+#endif
     
     return YES;
 }

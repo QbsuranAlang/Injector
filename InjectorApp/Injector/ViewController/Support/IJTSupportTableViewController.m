@@ -47,6 +47,7 @@
     self.facebookButton.tag = IJTStatusUserTypeFacebook;
     self.googleButton.tag = IJTStatusUserTypeGoogle;
     
+    
     //app information
     self.appInfoDict = [[NSMutableDictionary alloc] init];
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
@@ -64,9 +65,16 @@
     [df setDateFormat:@"y/MM/dd"];
     [self.appInfoDict setValue:[df stringFromDate:aDate] forKey:@"BuildDate"];
     
+#if 0
     //social media
     [self getFacebookStatus];
     [self getGoogleStatus];
+#else
+    [self.facebookButton setTitle:@"Deprecated" forState:UIControlStateNormal];
+    [self.googleButton setTitle:@"Deprecated" forState:UIControlStateNormal];
+    [self.facebookButton addTarget:self action:@selector(showDeprecatedMessage) forControlEvents:UIControlEventTouchUpInside];
+    [self.googleButton addTarget:self action:@selector(showDeprecatedMessage) forControlEvents:UIControlEventTouchUpInside];
+#endif
     
     self.imageArray = [[NSMutableArray alloc] init];
     self.nameArray = [[NSMutableArray alloc] init];
@@ -410,7 +418,6 @@
     }
     
     [alert addButton:@"Yes" actionBlock:^{
-    
         BOOL fail = NO;
         for(NSString *name in list) {
             if(setNewValue) {
@@ -665,8 +672,8 @@
             }
             else if(state == -1) {
                 [cell.enableSwitch setOn:NO];
-                [cell.enableSwitch setEnabled:NO];
-                [self showErrorMessage:@"Couldn\'t get forwarding information"];
+                //[cell.enableSwitch setEnabled:NO];
+                [self showErrorMessage:@"Couldn\'t get forwarding information."];
             }
             [cell.enableSwitch addTarget:self action:@selector(forwardingSwitchChange:) forControlEvents:UIControlEventValueChanged];
             

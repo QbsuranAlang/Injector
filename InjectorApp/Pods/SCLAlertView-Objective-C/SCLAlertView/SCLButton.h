@@ -65,7 +65,7 @@ typedef NS_ENUM(NSInteger, SCLActionType)
  *
  * Set SCLButton color.
  */
-@property (nonatomic, strong) UIColor *defaultBackgroundColor;
+@property (nonatomic, strong) UIColor *defaultBackgroundColor UI_APPEARANCE_SELECTOR;
 
 /** Set Target object.
  *
@@ -97,5 +97,13 @@ typedef NS_ENUM(NSInteger, SCLActionType)
  *
  */
 - (instancetype)initWithWindowWidth:(CGFloat)windowWidth;
+
+/** Adjust width of the button according to the width of the alert and
+ * the number of buttons. Only used when buttons are horizontally aligned.
+ *
+ * @param windowWith The width of the alert.
+ * @param numberOfButtons The number of buttons in the alert.
+ */
+- (void)adjustWidthWithWindowWidth:(CGFloat)windowWidht numberOfButtons:(NSUInteger)numberOfButtons;
 
 @end

@@ -1,26 +1,26 @@
 #!/bin/bash
 
-mkdir -p /var/db/launchd.db/com.apple.launchd
+#mkdir -p /var/db/launchd.db/com.apple.launchd
 
 #daemon
-chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
-chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
-chown root:wheel /Applications/Injector.app/InjectorDaemon
+#chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+#chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
+#chown root:wheel /Applications/Injector.app/InjectorDaemon
 
-killall InjectorDaemon 2>/dev/null
-launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist 2>/dev/null
+#killall InjectorDaemon 2>/dev/null
+#launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist 2>/dev/null
 
 #kill daemon
-chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist
-chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist
+#chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist
+#chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorKillDaemon.plist
 
 #uploader
-chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
-chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
-chown root:wheel /Applications/Injector.app/InjectorUploader
+#chmod 644 /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
+#chown root:wheel /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
+#chown root:wheel /Applications/Injector.app/InjectorUploader
 
-killall InjectorUploader 2>/dev/null
-launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist 2>/dev/null
+#killall InjectorUploader 2>/dev/null
+#launchctl load /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist 2>/dev/null
 
 #app
 cd "/Applications/Injector.app/"

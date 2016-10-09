@@ -26,3 +26,7 @@ DerivedData
 Packages
 LatestBuild
 
+InjectorDaemon
+InjectorForeground
+InjectorPreferenceLoader
+InjectorUploader

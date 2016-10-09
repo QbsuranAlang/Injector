@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     self.tableView.separatorColor = [UIColor clearColor];
-    self.titleArray = @[@"FLOW", @"SNIFFER", @"LAN", @"TOOL KIT", @"FIREWALL", @"SUPPORT"];
+    self.titleArray = @[@"FLOW [deprecated]", @"SNIFFER", @"LAN", @"TOOL KIT", @"FIREWALL", @"SUPPORT"];
     self.iconArray = @[[UIImage imageNamed:@"Flow.png"],
                        [UIImage imageNamed:@"Sniffer.png"],
                        [UIImage imageNamed:@"LAN.png"],
@@ -228,11 +228,22 @@
     [IJTFormatUILabel sizeLabel:cell.titleLabel
                          toRect:cell.titleLabel.frame];
      */
+    
     [cell layoutIfNeeded];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0 && indexPath.row == 0) {
+        FUIAlertView *alert =
+        [IJTShowMessage baseAlertViewWithTitle:@"Sorry"
+                                       message:@"FLOW is deprecated."
+                                      delegate:nil
+                             cancelButtonTitle:@"OK"
+                             otherButtonTitles:nil];
+        [alert show];
+        return;
+    }//end if
     
     FUIButton *buttonF = [FUIButton appearance];
     

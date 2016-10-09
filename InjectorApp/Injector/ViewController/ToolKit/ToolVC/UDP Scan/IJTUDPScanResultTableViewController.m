@@ -240,6 +240,11 @@ UDPSCAN_CALLBACK_METHOD {
     return s;
 }
 
+- (NSArray *)allStringsForProgressView:(ASProgressPopUpView *)progressView {
+    NSString *s = [NSString stringWithFormat:@"Left : %u(%2d%%)", UINT32_MAX, 100];
+    return @[@"Try connecting...", s, @"Double Checking..."];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

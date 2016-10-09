@@ -3,7 +3,7 @@
 //  SCLAlertView
 //
 //  Created by Taylor Ryan on 8/18/15.
-//  Copyright (c) 2015 AnyKey Entertainment. All rights reserved.
+//  Copyright (c) 2015-2016 AnyKey Entertainment. All rights reserved.
 //
 //  Taken from https://stackoverflow.com/questions/11783439/uibutton-with-timer
 
@@ -14,7 +14,7 @@
 #endif
 #import "SCLButton.h"
 
-@interface SCLTimerDisplay : UIView{
+@interface SCLTimerDisplay : UIView {
     CGFloat currentAngle;
     CGFloat currentTime;
     CGFloat timerLimit;

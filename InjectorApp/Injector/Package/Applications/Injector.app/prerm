@@ -2,10 +2,10 @@
 
 #daemon
 #launchctl unload /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorDaemon.plist
-killall InjectorDaemon
+#killall InjectorDaemon
 
 #uploader
-launchctl unload /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
+#launchctl unload /Library/LaunchDaemons/tw.edu.mcu.cce.nrl.InjectorUploader.plist
 
 #other
 rm -f "/Applications/Injector.app/Injector_"

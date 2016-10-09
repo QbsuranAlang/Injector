@@ -467,7 +467,7 @@ typedef enum
                                (__bridge void *)_packetQueue);
         if(-1 == status) {
             [IJTDispatch dispatch_main_after:DISPATCH_DELAY_TIME block:^{
-                NSString *message = [self.pcap getPcapError];
+                NSString *message = self.pcap.errorMessage;
                 if(message.length > 0)
                     [self showErrorMessage:message];
             }];

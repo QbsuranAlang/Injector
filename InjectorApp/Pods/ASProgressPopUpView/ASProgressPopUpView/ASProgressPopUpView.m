@@ -16,10 +16,11 @@
 
 @implementation ASProgressPopUpView
 {
-    CGSize _defaultPopUpViewSize; // size that fits string ‘100%’
-    CGSize _popUpViewSize; // usually == _defaultPopUpViewSize, but can vary if dataSource is used
     UIColor *_popUpViewColor;
     NSArray *_keyTimes;
+    BOOL _shouldAnimate;
+    CALayer *_progressLayer;
+    CAGradientLayer *_gradientLayer;
 }
 
 #pragma mark - initialization
@@ -56,22 +57,11 @@
 {
     if (self.popUpView.alpha == 0.0) return;
     
-    [self.popUpView hideAnimated:animated];
-}
-
-- (void)setAutoAdjustTrackColor:(BOOL)autoAdjust
-{
-    if (_autoAdjustTrackColor == autoAdjust) return;
-    
-    _autoAdjustTrackColor = autoAdjust;
-    
-    // setProgressTintColor has been overridden to also set autoAdjustTrackColor to NO
-    // therefore super's implementation must be called to set progressTintColor
-    if (autoAdjust == NO) {
-        super.progressTintColor = nil; // sets track to default blue color
-    } else {
-        super.progressTintColor = [self.popUpView opaqueColor];
-    }
+    [self.popUpView hideAnimated:animated completionBlock:^{
+        if ([self.delegate respondsToSelector:@selector(progressViewDidHidePopUpView:)]) {
+            [self.delegate progressViewDidHidePopUpView:self];
+        }
+    }];
 }
 
 - (void)setTextColor:(UIColor *)color
@@ -85,8 +75,16 @@
     NSAssert(font, @"font can not be nil, it must be a valid UIFont");
     _font = font;
     [self.popUpView setFont:font];
+}
 
-    [self calculatePopUpViewSize];
+- (void)setTrackTintColor:(UIColor *)color
+{
+    self.backgroundColor = color;
+}
+
+- (UIColor *)trackTintColor
+{
+    return self.backgroundColor;
 }
 
 // return the currently displayed color if possible, otherwise return _popUpViewColor
@@ -96,65 +94,54 @@
     return [self.popUpView color] ?: _popUpViewColor;
 }
 
-- (void)setPopUpViewColor:(UIColor *)popUpViewColor
+- (void)setPopUpViewColor:(UIColor *)color
 {
-    _popUpViewColor = popUpViewColor;
+    _popUpViewColor = color;
     _popUpViewAnimatedColors = nil; // animated colors should be discarded
-    [self.popUpView setColor:popUpViewColor];
-
-    if (_autoAdjustTrackColor) {
-        super.progressTintColor = [self.popUpView opaqueColor];
-    }
+    [self.popUpView setColor:color];
+    [self setGradientColors:@[color, color] withPositions:nil];
 }
 
-- (void)setPopUpViewAnimatedColors:(NSArray *)popUpViewAnimatedColors
+- (void)setPopUpViewAnimatedColors:(NSArray *)colors
 {
-    [self setPopUpViewAnimatedColors:popUpViewAnimatedColors withPositions:nil];
+    [self setPopUpViewAnimatedColors:colors withPositions:nil];
 }
 
 // if 2 or more colors are present, set animated colors
 // if only 1 color is present then call 'setPopUpViewColor:'
 // if arg is nil then restore previous _popUpViewColor
-- (void)setPopUpViewAnimatedColors:(NSArray *)popUpViewAnimatedColors withPositions:(NSArray *)positions
+- (void)setPopUpViewAnimatedColors:(NSArray *)colors withPositions:(NSArray *)positions
 {
     if (positions) {
-        NSAssert([popUpViewAnimatedColors count] == [positions count], @"popUpViewAnimatedColors and locations should contain the same number of items");
+        NSAssert([colors count] == [positions count], @"popUpViewAnimatedColors and locations should contain the same number of items");
     }
     
-    _popUpViewAnimatedColors = popUpViewAnimatedColors;
+    _popUpViewAnimatedColors = colors;
     _keyTimes = positions;
     
-    if ([popUpViewAnimatedColors count] >= 2) {
-        [self.popUpView setAnimatedColors:popUpViewAnimatedColors withKeyTimes:_keyTimes];
+    if ([colors count] >= 2) {
+        [self.popUpView setAnimatedColors:colors withKeyTimes:_keyTimes];
+        [self setGradientColors:colors withPositions:positions];
     } else {
-        [self setPopUpViewColor:[popUpViewAnimatedColors lastObject] ?: _popUpViewColor];
+        [self setGradientColors:colors withPositions:positions];
+//        [self setPopUpViewColor:[colors lastObject] ?: _popUpViewColor];
     }
 }
 
-- (void)setPopUpViewCornerRadius:(CGFloat)popUpViewCornerRadius
+- (void)setPopUpViewCornerRadius:(CGFloat)radius
 {
-    _popUpViewCornerRadius = popUpViewCornerRadius;
-    [self.popUpView setCornerRadius:popUpViewCornerRadius];
+    self.popUpView.cornerRadius = radius;
+}
+
+- (CGFloat)popUpViewCornerRadius
+{
+    return self.popUpView.cornerRadius;
 }
 
 - (void)setDataSource:(id<ASProgressPopUpViewDataSource>)dataSource
 {
-    _dataSource = dataSource;;
-    [self calculatePopUpViewSize];
-}
-
-#pragma mark - ASPopUpViewDelegate
-
-- (void)colorDidUpdate:(UIColor *)opaqueColor;
-{
-    super.progressTintColor = opaqueColor;
-}
-
-- (void)popUpViewDidHide;
-{
-    if ([self.delegate respondsToSelector:@selector(progressViewDidHidePopUpView:)]) {
-        [self.delegate progressViewDidHidePopUpView:self];
-    }
+    _dataSource = dataSource;
+    self.continuouslyAdjustPopUpViewSize = YES;
 }
 
 // returns the current progress in the range 0.0 – 1.0
@@ -167,7 +154,19 @@
 
 - (void)setup
 {
-    _autoAdjustTrackColor = YES;
+    _progressLayer = [CALayer layer];
+    _progressLayer.masksToBounds = YES;
+    _progressLayer.anchorPoint = CGPointMake(0, 0);
+    [self.layer addSublayer:_progressLayer];
+    
+    _gradientLayer = [CAGradientLayer layer];
+    _gradientLayer.startPoint = CGPointZero;
+    _gradientLayer.endPoint = CGPointMake(1, 0);
+    [_progressLayer addSublayer:_gradientLayer];
+    
+    self.progress = 0;
+    
+    _continuouslyAdjustPopUpViewSize = NO;
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterPercentStyle];
@@ -176,7 +175,6 @@
     self.popUpView = [[ASPopUpView alloc] initWithFrame:CGRectZero];
     self.popUpViewColor = [UIColor colorWithHue:0.6 saturation:0.6 brightness:0.5 alpha:0.8];
 
-    self.popUpViewCornerRadius = 4.0;
     self.popUpView.alpha = 0.0;
     self.popUpView.delegate = self;
     [self addSubview:self.popUpView];
@@ -199,23 +197,16 @@
     progressString = [self.dataSource progressView:self stringForProgress:self.progress] ?: [_numberFormatter stringFromNumber:@(self.progress)];
     if (progressString.length == 0) progressString = @"???"; // replacement for blank string
     
-    // set _popUpViewSize to appropriate size for the progressString if required
-    if ([self.dataSource respondsToSelector:@selector(progressViewShouldPreCalculatePopUpViewSize:)] &&
-        [self.dataSource progressViewShouldPreCalculatePopUpViewSize:self] == NO)
-    {
-        if ([self.dataSource progressView:self stringForProgress:self.progress]) {
-            _popUpViewSize = [self.popUpView popUpSizeForString:progressString];
-        } else {
-            _popUpViewSize = _defaultPopUpViewSize;
-        }
-    }
+    CGSize popUpViewSize = (self.continuouslyAdjustPopUpViewSize == YES)
+    ? [self.popUpView popUpSizeForString:progressString]
+    : [self calculatePopUpViewSize];
     
     // calculate the popUpView frame
     CGRect bounds = self.bounds;
-    CGFloat xPos = (CGRectGetWidth(bounds) * self.progress) - _popUpViewSize.width/2;
+    CGFloat xPos = (CGRectGetWidth(bounds) * self.progress) - popUpViewSize.width/2;
     
-    CGRect popUpRect = CGRectMake(xPos, CGRectGetMinY(bounds)-_popUpViewSize.height,
-                                  _popUpViewSize.width, _popUpViewSize.height);
+    CGRect popUpRect = CGRectMake(xPos, CGRectGetMinY(bounds)-popUpViewSize.height,
+                                  popUpViewSize.width, popUpViewSize.height);
     
     // determine if popUpRect extends beyond the frame of the progress view
     // if so adjust frame and set the center offset of the PopUpView's arrow
@@ -225,46 +216,49 @@
     CGFloat offset = minOffsetX < 0.0 ? minOffsetX : (maxOffsetX > 0.0 ? maxOffsetX : 0.0);
     popUpRect.origin.x -= offset;
     
-    [self.popUpView setFrame:popUpRect arrowOffset:offset text:progressString];
+    [self.popUpView setFrame:popUpRect arrowOffset:offset colorOffset:self.progress text:progressString];
+
 }
 
-- (void)calculatePopUpViewSize
+- (CGSize)calculatePopUpViewSize
 {
-    _defaultPopUpViewSize = [self.popUpView popUpSizeForString:[_numberFormatter stringFromNumber:@1.0]];;
+    NSString *defaultString = (self.dataSource)
+    ? [self.dataSource progressView:self stringForProgress:1.0]
+    : [_numberFormatter stringFromNumber:@1.0];
+    
+    CGSize defaultPopUpViewSize = [self.popUpView popUpSizeForString:defaultString];
+    if (!self.dataSource) return defaultPopUpViewSize;
 
-    // if there isn't a dataSource, set _popUpViewSize to _defaultPopUpViewSize
-    if (!self.dataSource) {
-        _popUpViewSize = _defaultPopUpViewSize;
-        return;
-    }
-    
-    // if dataSource doesn't want popUpView size precalculated then return early from method
-    if ([self.dataSource respondsToSelector:@selector(progressViewShouldPreCalculatePopUpViewSize:)]) {
-        if ([self.dataSource progressViewShouldPreCalculatePopUpViewSize:self] == NO) return;
-    }
-    
     // calculate the largest popUpView size needed to keep the size consistent
-    // ask the dataSource for values between 0.0 - 1.0 in 0.01 increments
+    // ask the dataSource for 'allStringsForProgressView'
     // set size to the largest width and height returned from the dataSource
+
     CGFloat width = 0.0, height = 0.0;
-    for (int i=0; i<=100; i++) {
-        NSString *string = [self.dataSource progressView:self stringForProgress:i/100.0];
-        if (string) {
-            CGSize size = [self.popUpView popUpSizeForString:string];
-            if (size.width > width) width = size.width;
-            if (size.height > height) height = size.height;
-        }
+    for (NSString *string in [self.dataSource allStringsForProgressView:self]) {
+        CGSize size = [self.popUpView popUpSizeForString:string];
+        if (size.width > width) width = size.width;
+        if (size.height > height) height = size.height;
     }
-    _popUpViewSize = (width > 0.0 && height > 0.0) ? CGSizeMake(width, height) : _defaultPopUpViewSize;
+    
+    return (width > defaultPopUpViewSize.width) ? CGSizeMake(width, height) : defaultPopUpViewSize;
 }
 
 #pragma mark - subclassed
 
--(void)layoutSubviews
+- (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    [self updateProgressLayer];
     [self updatePopUpView];
 }
+
+- (void)updateProgressLayer
+{
+    _gradientLayer.frame = self.bounds;
+    _progressLayer.frame = CGRectMake(0, 0, self.bounds.size.width * self.progress, self.bounds.size.height);
+}
+
 
 - (void)didMoveToWindow
 {
@@ -283,36 +277,54 @@
     }
 }
 
-- (void)setProgressTintColor:(UIColor *)color
-{
-    self.autoAdjustTrackColor = NO; // if a custom value is set then prevent auto coloring
-    [super setProgressTintColor:color];
-}
+//- (void)setProgressTintColor:(UIColor *)color
+//{
+//    self.progressLayer.backgroundColor = color.CGColor;
+//}
+//
+//- (UIColor *)progressTintColor
+//{
+//    return [UIColor colorWithCGColor:self.progressLayer.backgroundColor];
+//}
 
 - (void)setProgress:(float)progress
 {
-    [super setProgress:progress];
-    
-    [self.popUpView setAnimationOffset:progress returnColor:^(UIColor *opaqueReturnColor) {
-        super.progressTintColor = opaqueReturnColor;
-    }];
+    _progress = MAX(0.0, MIN(progress, 1.0));
+    [self updateProgressLayer];
 }
 
 - (void)setProgress:(float)progress animated:(BOOL)animated
 {
-    if (animated == NO) { // set progress without animation and return early
-        self.progress = progress;
-        return;
-    }
-
-    [self.popUpView animateBlock:^(CFTimeInterval duration) {
-        self.progress = progress;
-        
-        [UIView animateWithDuration:duration animations:^{
-            [self layoutIfNeeded];
-            [super setProgress:progress animated:animated];
+    _shouldAnimate = animated;
+    
+    if (animated) {
+        [self.popUpView animateBlock:^(CFTimeInterval duration) {
+            CABasicAnimation *anim = [CABasicAnimation animation];
+            anim.duration = duration;
+            anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            anim.fromValue = [_progressLayer.presentationLayer valueForKey:@"bounds"];
+            _progressLayer.actions = @{@"bounds" : anim};
+            
+            [UIView animateWithDuration:duration animations:^{
+                self.progress = progress;
+                [self layoutIfNeeded];
+            }];
         }];
-    }];
+    } else {
+        _progressLayer.actions = @{@"bounds" : [NSNull null]};
+        self.progress = progress;
+    }
+}
+
+- (void)setGradientColors:(NSArray *)gradientColors withPositions:(NSArray *)positions
+{
+    NSMutableArray *cgColors = [NSMutableArray array];
+    for (UIColor *col in gradientColors) {
+        [cgColors addObject:(id)col.CGColor];
+    }
+    
+    _gradientLayer.colors = cgColors;
+    _gradientLayer.locations = positions;
 }
 
 @end

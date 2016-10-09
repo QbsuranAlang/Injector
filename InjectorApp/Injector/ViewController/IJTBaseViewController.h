@@ -135,6 +135,7 @@ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextField
 + (NSArray *)getLANSupportToolArray;
 + (NSArray *)getAllToolSectionArray;
 
+- (void)showDeprecatedMessage;
 
 - (void)showInfoMessage: (NSString *)message;
 

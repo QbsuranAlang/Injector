@@ -13,6 +13,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
     
     CGFloat width = (SCREEN_WIDTH - (self.buttons.count - 1))/self.buttons.count;
     

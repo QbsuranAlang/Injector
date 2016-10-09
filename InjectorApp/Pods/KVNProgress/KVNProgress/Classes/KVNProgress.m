@@ -14,19 +14,13 @@
 #import "UIImage+KVNImageEffects.h"
 #import "UIImage+KVNEmpty.h"
 #import "UIColor+KVNContrast.h"
+#import "KVNRotationViewController.h"
 
 #define KVNBlockSelf __blockSelf
 #define KVNPrepareBlockSelf() __weak typeof(self) KVNBlockSelf = self
 #define KVNIpad UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define KVNSystemVersionGreaterOrEqual_iOS_8 ([[[UIDevice currentDevice] systemVersion] compare:@"8" options:NSNumericSearch] != NSOrderedAscending)
 #define KVNRadiansToDegress(radians) ((radians) * (180.0 / M_PI))
-
-typedef NS_ENUM(NSUInteger, KVNProgressStyle) {
-	KVNProgressStyleHidden,
-	KVNProgressStyleProgress,
-	KVNProgressStyleSuccess,
-	KVNProgressStyleError
-};
 
 typedef NS_ENUM(NSUInteger, KVNProgressState) {
 	KVNProgressStateHidden,
@@ -59,7 +53,6 @@ static KVNProgressConfiguration *configuration;
 @property (nonatomic) CGFloat progress;
 @property (nonatomic) KVNProgressBackgroundType backgroundType;
 @property (nonatomic) NSString *status;
-@property (nonatomic) KVNProgressStyle style;
 @property (nonatomic) KVNProgressConfiguration *configuration;
 @property (nonatomic) NSDate *showActionTrigerredDate;
 @property (nonatomic, getter = isFullScreen) BOOL fullScreen;
@@ -93,6 +86,8 @@ static KVNProgressConfiguration *configuration;
 
 @property (atomic) NSOperationQueue *queue;
 @property (atomic) NSBlockOperation *animateAppearanceOperation;
+@property (nonatomic, strong) UIWindow *progressWindow;
+@property (nonatomic, strong) UIWindow *originalKeyWindow;
 
 @end
 
@@ -107,7 +102,7 @@ static KVNProgressConfiguration *configuration;
 	
 	dispatch_once(&onceToken, ^{
 		UINib *nib = [UINib nibWithNibName:@"KVNProgressView"
-                                    bundle:[NSBundle bundleForClass:[self class]]];
+                                    bundle:[NSBundle bundleForClass:[KVNProgress class]]];
 		NSArray *nibViews = [nib instantiateWithOwner:self
 											  options:0];
 
@@ -420,7 +415,7 @@ static KVNProgressConfiguration *configuration;
 		if (superview) {
 			[self addToView:superview];
 		} else {
-			[self addToCurrentWindow];
+			[self addToWindow];
 		}
 		
 		[self setupUI:YES];
@@ -538,6 +533,11 @@ static KVNProgressConfiguration *configuration;
 		progressView.style = KVNProgressStyleHidden;
 		
 		UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
+		
+		if (!progressView.progressWindow.hidden) {
+			progressView.progressWindow.hidden = YES;
+			[progressView.originalKeyWindow makeKeyAndVisible];
+		}
 		
 		[UIApplication sharedApplication].statusBarStyle = [self sharedView].rootControllerStatusBarStyle;
 	}
@@ -867,28 +867,35 @@ static KVNProgressConfiguration *configuration;
 	[self.contentView addMotionEffect:group];
 }
 
-- (void)addToCurrentWindow
+- (void)addToWindow
 {
-	UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+	self.originalKeyWindow = [UIApplication sharedApplication].keyWindow;
 	
-	if (!currentWindow) {
-		NSEnumerator *frontToBackWindows = [[[UIApplication sharedApplication] windows] reverseObjectEnumerator];
+	if (!self.progressWindow) {
+		self.progressWindow = [[UIWindow alloc] initWithFrame:self.originalKeyWindow.frame];
 		
-		for (UIWindow *window in frontToBackWindows) {
-			if (window.windowLevel == UIWindowLevelNormal) {
-				currentWindow = window;
-				break;
-			}
-		}
+		// That code makes the custom UIWindow handle the orientation changes.
+		// http://stackoverflow.com/a/27091111/2571566
+		self.progressWindow.rootViewController = [[KVNRotationViewController alloc] init];
 	}
 	
-	if (self.superview != currentWindow) {
-		[self addToView:currentWindow];
-	}
+	self.progressWindow.frame = self.originalKeyWindow.frame;
+	
+	// Since iOS 9.0 set the windowsLevel to UIWindowLevelStatusBar is not working anymore.
+	// This trick, place the progressWindow on the top.
+	UIWindow *lastWindow = [[[UIApplication sharedApplication] windows] lastObject];
+	self.progressWindow.windowLevel = lastWindow.windowLevel + 1;
+	
+	[self.progressWindow makeKeyAndVisible];
+	[self addToView:self.progressWindow];
 }
 
 - (void)addToView:(UIView *)superview
 {
+	if (self.superview == superview) {
+		return;
+	}
+	
 	if (self.superview) {
 		[self.superview removeConstraints:self.constraintsToSuperview];
 		[self removeFromSuperview];
@@ -897,22 +904,25 @@ static KVNProgressConfiguration *configuration;
 	[superview addSubview:self];
 	[superview bringSubviewToFront:self];
 	
-	NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[self]|"
-																		   options:0
-																		   metrics:nil
-																			 views:@{@"self" : self}];
-	NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[self]|"
-																			 options:0
-																			 metrics:nil
-																			   views:@{@"self" : self}];
-	
-	self.constraintsToSuperview = [verticalConstraints arrayByAddingObjectsFromArray:horizontalConstraints];
-	
-	self.translatesAutoresizingMaskIntoConstraints = NO;
-	[superview addConstraints:verticalConstraints];
-	[superview addConstraints:horizontalConstraints];
-	
-	[self layoutIfNeeded];
+	if (![superview isKindOfClass:[UITableView class]]) {
+		// Autolayout messes when superview is a UITableView
+		NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[self]|"
+																			   options:0
+																			   metrics:nil
+																				 views:@{@"self" : self}];
+		NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[self]|"
+																				 options:0
+																				 metrics:nil
+																				   views:@{@"self" : self}];
+		
+		self.constraintsToSuperview = [verticalConstraints arrayByAddingObjectsFromArray:horizontalConstraints];
+		
+		self.translatesAutoresizingMaskIntoConstraints = NO;
+		[superview addConstraints:verticalConstraints];
+		[superview addConstraints:horizontalConstraints];
+		
+		[self layoutIfNeeded];
+	}
 	
 	self.alpha = 0.0f;
 	
@@ -1129,7 +1139,6 @@ static KVNProgressConfiguration *configuration;
 						 KVNBlockSelf.contentView.transform = CGAffineTransformIdentity;
 					 } completion:^(BOOL finished) {
 						 if (KVNBlockSelf.state != KVNProgressStateAppearing) {
-							 NSLog(@"KVNProgress: animateAppearance — animation completion — stopped, state is not appearing");
 							 return;
 						 }
 						 
@@ -1236,16 +1245,14 @@ static KVNProgressConfiguration *configuration;
 
 - (UIImage *)blurredScreenShot
 {
-	return [self blurredScreenShotWithRect:[UIApplication sharedApplication].keyWindow.frame];
+	return [self blurredScreenShotWithRect:self.originalKeyWindow.frame];
 }
 
 - (UIImage *)blurredScreenShotWithRect:(CGRect)rect
 {
-	UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-	
 	UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
 	
-	[keyWindow drawViewHierarchyInRect:rect afterScreenUpdates:NO];
+	[self.originalKeyWindow drawViewHierarchyInRect:rect afterScreenUpdates:NO];
 	UIImage *blurredScreenShot = UIGraphicsGetImageFromCurrentImageContext();
 	
 	UIGraphicsEndImageContext();

@@ -85,9 +85,22 @@
     
     self.messageLabel.text = @"No Allow Information";
     
+#if 0
     //refresh control
     self.refreshView = [[SSARefreshControl alloc] initWithScrollView:self.tableView andRefreshViewLayerType:SSARefreshViewLayerTypeOnScrollView];
     self.refreshView.delegate = self;
+#else
+    //
+    self.navigationItem.title = @"Allow [deprecated]";
+    self.detailButton =
+    [[UIBarButtonItem alloc]
+     initWithImage:[UIImage imageNamed:@"other_tool.png"]
+     style:UIBarButtonItemStylePlain
+     target:self action:@selector(showDeprecatedMessage)];
+    self.navigationItem.rightBarButtonItems =
+    [NSArray arrayWithObjects:_detailButton, nil];
+    self.messageLabel.text = @"The Function is Deprecated";
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,7 +111,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self refresh];
+    //[self refresh];
+    [self showDeprecatedMessage];
 }
 
 - (void)dismissVC {
@@ -202,13 +216,16 @@
             self.navigationItem.rightBarButtonItems = array;
         }
         else if([item.title hasPrefix:@"What"]) {
-            [self goRuleVC];
+            [self showDeprecatedMessage];
+            //[self goRuleVC];
         }
         else if([item.title hasPrefix:@"Backup"]) {
-            [self backupAction];
+            [self showDeprecatedMessage];
+            //[self backupAction];
         }
         else if([item.title hasPrefix:@"Restore"]) {
-            [self restoreAction];
+            [self showDeprecatedMessage];
+            //[self restoreAction];
         }
     }];
 }

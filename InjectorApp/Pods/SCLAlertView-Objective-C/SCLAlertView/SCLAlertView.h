@@ -50,7 +50,8 @@ typedef NS_ENUM(NSInteger, SCLAlertViewHideAnimation)
     SlideOutToLeft,
     SlideOutToRight,
     SlideOutToCenter,
-    SlideOutFromCenter
+    SlideOutFromCenter,
+    SimplyDisappear
 };
 
 /** Alert show animation styles
@@ -65,7 +66,8 @@ typedef NS_ENUM(NSInteger, SCLAlertViewShowAnimation)
     SlideInFromLeft,
     SlideInFromRight,
     SlideInFromCenter,
-    SlideInToCenter
+    SlideInToCenter,
+    SimplyAppear
 };
 
 /** Alert background styles
@@ -219,6 +221,12 @@ typedef NS_ENUM(NSInteger, SCLAlertViewBackground)
  * Status bar style
  */
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
+
+/** Set horizontal alignment for buttons
+ *
+ * Horizontal aligment instead of vertically if YES
+ */
+@property (nonatomic) BOOL horizontalButtons;
 
 /** Initialize SCLAlertView using a new window.
  *

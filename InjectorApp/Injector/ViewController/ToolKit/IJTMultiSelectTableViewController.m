@@ -52,16 +52,18 @@
     self.collectionView.pagingEnabled = NO;
     self.collectionView.bounces = YES;
     self.collectionView.alwaysBounceHorizontal = YES;
+    [self.collectionView layoutIfNeeded];
     
     UIColor *transBgColor = [IJTColor lighter:IJTInjectorIconBackgroundColor times:1];
     NSArray *colors = [NSArray arrayWithObjects:(id)[IJTColor darker:IJTInjectorIconBackgroundColor times:1 level:10].CGColor, (id)transBgColor.CGColor, nil];
-    [self.collectionView layoutIfNeeded];
-    [self.view.layer insertSublayer:[IJTGradient horizontalGradientColors:colors
-                                                                    frame:self.collectionView.frame
-                                                               startPoint:CGPointMake(0.0, 0.5)
-                                                                 endPoint:CGPointMake(1.0, 0.5)
-                                                                locations:@[@(0), @(0.7), @(1.0)]]
-                                      atIndex:0];
+    [self.view.layer insertSublayer:
+     [IJTGradient horizontalGradientColors:colors
+                                     frame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
+                                startPoint:CGPointMake(0.0, 0.5)
+                                  endPoint:CGPointMake(1.0, 0.5)
+                                 locations:@[@(0), @(0.7), @(1.0)]]
+                            atIndex:0];
+    
     
     self.collectionViewHeightConstraint.constant = 0.0f;
     

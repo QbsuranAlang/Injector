@@ -134,6 +134,10 @@
     }
 }
 
+- (void)showDeprecatedMessage {
+    [self showInfoMessage:@"The function is deprecated."];
+}
+
 - (void)showInfoMessage: (NSString *)message {
     [self showMessage:message title:@"Information" style:JFMinimalNotificationStyleDefault];
 }
@@ -186,8 +190,8 @@
         [IJTDispatch dispatch_main:^{
             if(vc.minimalNotification == nil) {
                 [vc baseNotificationViewWithTitle:title
-                                           subTitle:message
-                                              style:style];
+                                         subTitle:message
+                                            style:style];
                 vc.minimalNotification.delegate = vc;
                 /**
                  * Add the notification to a view

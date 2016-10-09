@@ -15,14 +15,16 @@
 
 @protocol ASPopUpViewDelegate <NSObject>
 - (CGFloat)currentValueOffset; //expects value in the range 0.0 - 1.0
-- (void)colorDidUpdate:(UIColor *)opaqueColor;
-- (void)popUpViewDidHide;
+//- (void)colorDidUpdate:(UIColor *)opaqueColor;
 @end
 
 @interface ASPopUpView : UIView
 
 @property (weak, nonatomic) id <ASPopUpViewDelegate> delegate;
 @property (nonatomic) CGFloat cornerRadius;
+@property (nonatomic) CGFloat arrowLength;
+@property (nonatomic) CGFloat widthPaddingFactor;
+@property (nonatomic) CGFloat heightPaddingFactor;
 
 - (UIColor *)color;
 - (void)setColor:(UIColor *)color;
@@ -34,15 +36,15 @@
 
 - (void)setAnimatedColors:(NSArray *)animatedColors withKeyTimes:(NSArray *)keyTimes;
 
-- (void)setAnimationOffset:(CGFloat)animOffset returnColor:(void (^)(UIColor *opaqueReturnColor))block;
+//- (void)animateColorToOffset:(CGFloat)animOffset returnColor:(void (^)(UIColor *opaqueReturnColor))block;
 
-- (void)setFrame:(CGRect)frame arrowOffset:(CGFloat)arrowOffset text:(NSString *)text;
+- (void)setFrame:(CGRect)frame arrowOffset:(CGFloat)arrowOffset colorOffset:(CGFloat)colorOffset text:(NSString *)text;
 
 - (void)animateBlock:(void (^)(CFTimeInterval duration))block;
 
 - (CGSize)popUpSizeForString:(NSString *)string;
 
 - (void)showAnimated:(BOOL)animated;
-- (void)hideAnimated:(BOOL)animated;
+- (void)hideAnimated:(BOOL)animated completionBlock:(void (^)())block;
 
 @end

@@ -19,7 +19,6 @@
 
 - (void)breakLoop;
 - (void)closeHandle;
-- (NSString *) getPcapError;
 
 @property (nonatomic) BOOL occurError;
 @property (nonatomic) pcap_t *handle;

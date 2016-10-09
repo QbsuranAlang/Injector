@@ -336,13 +336,16 @@ FIREWALL_SHOW_CALLBACK_METHOD {
             self.navigationItem.rightBarButtonItems = array;
         }
         else if([item.title hasPrefix:@"What"]) {
-            [self goRuleVC];
+            [self showDeprecatedMessage];
+            //[self goRuleVC];
         }
         else if([item.title hasPrefix:@"Backup"]) {
-            [self backupAction];
+            [self showDeprecatedMessage];
+            //[self backupAction];
         }
         else if([item.title hasPrefix:@"Restore"]) {
-            [self restoreAction];
+            [self showDeprecatedMessage];
+            //[self restoreAction];
         }
     }];
 }
