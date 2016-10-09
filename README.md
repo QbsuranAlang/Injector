@@ -1,9 +1,15 @@
 Injector
 =======================
 
+## Introduction
+
 Injector能夠在iOS介面上瀏覽網路封包、區域網路主機訊息、系統工具、網路工具指令、防火牆...等功能。
 
 Injector function: sniffing network packet, LAN host configure, system tool, network command tool and firewall...
+
+**越獄是必須的。**
+
+**Jailbreak is required.**
 
 <img src="Image/Injector.png" width = "300" height = "300">
 
